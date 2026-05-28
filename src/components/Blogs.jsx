@@ -59,8 +59,8 @@ const Blogs = () => {
                 <section className="w-full grid min-h-screen supports-[min-height:100cqh]:min-h-[100cqh] relative" style={{ marginTop: 'calc(-1 * 120px)', contain: 'layout style paint' }}>
                     <div className="relative min-h-screen flex flex-col" style={{ paddingTop: '120px', minHeight: 'calc(100vh + 120px)' }}>
                         <div className="absolute inset-0" style={{ borderRadius: 'inherit', background: '#FFF8E4' }}></div>
-                        <div className="relative w-full flex-1 flex flex-col-reverse gap-0 @desktop:flex-row @desktop:items-stretch" style={{ zIndex: '10' }}>
-                            <div style={{ '--bg-color': 'rgba(0%, 0%, 0%, 0.04764)' }} className="bg-(--bg-color) w-full p-6 @tablet:p-8 @desktop:w-1/2 @desktop:shrink-0 @desktop:px-14 @desktop:py-16 flex flex-col justify-center">
+                        <div className="relative w-full flex-1 flex flex-col-reverse gap-0 lg:flex-row lg:items-stretch" style={{ zIndex: '10' }}>
+                            <div style={{ '--bg-color': 'rgba(0%, 0%, 0%, 0.04764)' }} className="bg-(--bg-color) w-full p-6 md:p-8 lg:w-1/2 lg:shrink-0 lg:px-14 lg:py-16 flex flex-col justify-center">
                                 <div className="flex flex-col gap-6">
                                     <div className="flex flex-col items-start gap-4">
                                         <h1 id="blogs-main-title" className="[font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-display-lg-font-size)', '--typography-font-weight': 'var(--typography-display-lg-font-weight)', '--typography-line-height': 'var(--typography-display-lg-line-height)', '--typography-letter-spacing': 'var(--typography-display-lg-letter-spacing)', '--typography-font-family': 'var(--typography-display-lg-font-family)', color: '#000000 !important', opacity: 1, visibility: 'visible' }}>
@@ -70,7 +70,7 @@ const Blogs = () => {
                                             Stay updated with expert insights on electrical wires, FR cables, industrial wiring solutions, and the latest safety standards in the industry.
                                         </p>
                                     </div>
-                                    <div className="grid grid-cols-1 gap-4 @tablet:flex @tablet:flex-row items-start @tablet:justify-start">
+                                    <div className="grid grid-cols-1 gap-4 md:flex md:flex-row items-start md:justify-start">
                                         <Link data-slot="button" label="Explore Articles" style={{ '--bg-color': '#c62828', '--hover-bg-color': '#a00000', color: '#fff' }} className="btn-text-white inline-flex shrink-0 cursor-pointer items-center justify-center bg-(--bg-color) whitespace-nowrap transition-all outline-none hover:bg-(--hover-bg-color) focus-visible:border-primary-border focus-visible:ring-[3px] focus-visible:ring-primary-interactive-bg disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-error-border aria-invalid:ring-error-interactive-bg border border-(--bg-color) hover:border-(--hover-bg-color) gap-2 px-5 py-2.5 rounded-3xl" to="#latest-articles">
                                             <span className="min-w-0 overflow-hidden text-ellipsis [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-body-sm-em-font-size)', '--typography-font-weight': 'var(--typography-body-sm-em-font-weight)', '--typography-line-height': 'var(--typography-body-sm-em-line-height)', '--typography-letter-spacing': 'var(--typography-body-sm-em-letter-spacing)', '--typography-font-family': 'var(--typography-body-sm-em-font-family)', color: '#fff' }}>
                                                 Explore Articles
@@ -79,7 +79,7 @@ const Blogs = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="relative aspect-4/3 w-full overflow-hidden @desktop:aspect-auto @desktop:w-1/2 @desktop:shrink-0">
+                            <div className="relative aspect-4/3 w-full overflow-hidden lg:aspect-auto lg:w-1/2 lg:shrink-0">
                                 <div className="relative h-full w-full overflow-hidden">
                                     <video
                                         autoPlay
@@ -101,9 +101,9 @@ const Blogs = () => {
                 <section className="w-full" style={{ contain: 'layout style paint' }}>
                     <div className="relative">
                         <div className="absolute inset-0" style={{ borderRadius: 'inherit', background: '#FFF8E4' }}></div>
-                        <div className="relative mx-auto max-w-[1536px] px-6 flex flex-col gap-8 py-16 @tablet:py-24 @tablet:gap-14" style={{ zIndex: '10' }}>
-                            <div className="flex flex-col gap-8 @desktop:flex-row @desktop:items-end @desktop:justify-between">
-                                <div className="flex flex-col gap-4 @tablet:max-w-2/3 @desktop:max-w-1/2">
+                        <div className="relative mx-auto max-w-[1536px] px-6 flex flex-col gap-8 py-16 md:py-24 md:gap-14" style={{ zIndex: '10' }}>
+                            <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+                                <div className="flex flex-col gap-4 md:max-w-2/3 lg:max-w-1/2">
                                     <div className="flex items-baseline gap-1">
                                         <div className="flex items-center">
                                             <div className="h-0 w-4 border-t" style={{ borderColor: '#1b1b16' }}></div>
@@ -118,7 +118,7 @@ const Blogs = () => {
                                 </div>
                             </div>
                             <div className="flex flex-col gap-8">
-                                <div className="grid grid-cols-1 @tablet:grid-cols-2 @desktop:grid-cols-3 gap-6 w-full">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
                                     {/* Blog Card 1 */}
                                     <BlogCard 
                                         videoSrc={videoCard1}
@@ -151,7 +151,7 @@ const Blogs = () => {
                 <section className="w-full relative" style={{ contain: 'layout style paint' }}>
                     <div className="relative" style={{ paddingBottom: '488px' }}>
                         <div className="absolute inset-0" style={{ borderRadius: 'inherit', background: 'linear-gradient(180deg, transparent 0%, transparent 100%), #0F0F0079' }}></div>
-                        <div className="relative mx-auto max-w-[1536px] px-6 flex flex-col gap-4 py-16 @tablet:py-24 items-center justify-center text-center" style={{ zIndex: '10' }}>
+                        <div className="relative mx-auto max-w-[1536px] px-6 flex flex-col gap-4 py-16 md:py-24 items-center justify-center text-center" style={{ zIndex: '10' }}>
                             <div className="flex flex-col max-w-2xl items-center">
                                 <h2 className="[font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-display-md-font-size)', '--typography-font-weight': 'var(--typography-display-md-font-weight)', '--typography-line-height': 'var(--typography-display-md-line-height)', '--typography-letter-spacing': 'var(--typography-display-md-letter-spacing)', '--typography-font-family': 'var(--typography-display-md-font-family)', color: '#f9f9f2' }}>
                                     Stay Updated with Electrical Industry Insights
@@ -161,7 +161,7 @@ const Blogs = () => {
                                 <p className="whitespace-pre-line [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-body-md-font-size)', '--typography-font-weight': 'var(--typography-body-md-font-weight)', '--typography-line-height': 'var(--typography-body-md-line-height)', '--typography-letter-spacing': 'var(--typography-body-md-letter-spacing)', '--typography-font-family': 'var(--typography-body-md-font-family)', color: '#e5e6de' }}>
                                     Subscribe to receive expert tips, product updates, and the latest trends in electrical wires, FR cables, and industrial wiring solutions.
                                 </p>
-                                <div className="grid grid-cols-1 gap-4 @tablet:flex @tablet:flex-row items-center @tablet:justify-center">
+                                <div className="grid grid-cols-1 gap-4 md:flex md:flex-row items-center md:justify-center">
                                     <Link data-slot="button" label="Subscribe Now" style={{ '--bg-color': '#c62828', '--hover-bg-color': '#a00000', color: '#fff' }} className="btn-text-white inline-flex shrink-0 cursor-pointer items-center justify-center bg-(--bg-color) whitespace-nowrap transition-all outline-none hover:bg-(--hover-bg-color) focus-visible:border-primary-border focus-visible:ring-[3px] focus-visible:ring-primary-interactive-bg border border-(--bg-color) hover:border-(--hover-bg-color) gap-2 px-5 py-2.5 rounded-3xl" to="/contact">
                                         <span className="min-w-0 overflow-hidden text-ellipsis [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-body-sm-em-font-size)', '--typography-font-weight': 'var(--typography-body-sm-em-font-weight)', '--typography-line-height': 'var(--typography-body-sm-em-line-height)', '--typography-letter-spacing': 'var(--typography-body-sm-em-letter-spacing)', '--typography-font-family': 'var(--typography-body-sm-em-font-family)', color: '#fff' }}>
                                             Subscribe Now

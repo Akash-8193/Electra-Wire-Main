@@ -20,24 +20,24 @@ const Contact = () => {
                         <div className="absolute inset-0 z-10">
                             <div className="absolute inset-0" style={{borderRadius: 'inherit', background: '#0F0F0079'}}></div>
                         </div>
-                        <div className="mx-auto max-w-[1536px] px-6 relative flex h-full flex-1 items-end py-16 @tablet:py-24" style={{zIndex: '20'}}>
-                            <div className="flex w-full flex-col gap-8 @desktop:flex-row @desktop:items-end @desktop:justify-between">
-                                <div className="flex flex-col gap-8 @desktop:gap-4">
+                        <div className="mx-auto max-w-[1536px] px-6 relative flex h-full flex-1 items-end py-16 md:py-24" style={{zIndex: '20'}}>
+                            <div className="flex w-full flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+                                <div className="flex flex-col gap-8 lg:gap-4">
                                     <div className="flex max-w-2xl flex-col gap-4">
                                         <h1 className="[font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{'--typography-font-size': 'var(--typography-display-md-font-size)', '--typography-font-weight': 'var(--typography-display-md-font-weight)', '--typography-line-height': 'var(--typography-display-md-line-height)', '--typography-letter-spacing': 'var(--typography-display-md-letter-spacing)', '--typography-font-family': 'var(--typography-display-md-font-family)', color: '#E8A317'}}>
                                             Get in Touch for Reliable Electrical Wire Solutions
                                         </h1>
                                     </div>
-                                    <div className="@desktop:hidden">
-                                        <div className="grid grid-cols-1 gap-4 @tablet:flex @tablet:flex-row items-start @tablet:justify-start">
+                                    <div className="lg:hidden">
+                                        <div className="grid grid-cols-1 gap-4 md:flex md:flex-row items-start md:justify-start">
                                             <Link data-slot="button" label="Talk to Our Experts" style={{ '--bg-color': '#c62828', '--hover-bg-color': '#a00000', color: '#fff' }} className="btn-text-white inline-flex shrink-0 cursor-pointer items-center justify-center bg-(--bg-color) whitespace-nowrap transition-all outline-none hover:bg-(--hover-bg-color) focus-visible:border-primary-border focus-visible:ring-[3px] focus-visible:ring-primary-interactive-bg disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-error-border aria-invalid:ring-error-interactive-bg [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])] :size-4 border border-black hover:border-black gap-2 px-5 py-2.5 has-[>svg:first-child]:pr-4 has-[>svg:last-child]:pl-4 has-[>svg:only-child]:px-2.5 rounded-3xl" to="#contact-info">
                                                 <span className="min-w-0 overflow-hidden text-ellipsis [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-body-sm-em-font-size)', '--typography-font-weight': 'var(--typography-body-sm-em-font-weight)', '--typography-line-height': 'var(--typography-body-sm-em-line-height)', '--typography-letter-spacing': 'var(--typography-body-sm-em-letter-spacing)', '--typography-font-family': 'var(--typography-body-sm-em-font-family)', color: '#fff' }}>Talk to Our Experts</span>
                                             </Link>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="hidden @desktop:block">
-                                    <div className="grid grid-cols-1 gap-4 @tablet:flex @tablet:flex-row items-start @tablet:justify-start">
+                                <div className="hidden lg:block">
+                                    <div className="grid grid-cols-1 gap-4 md:flex md:flex-row items-start md:justify-start">
                                         <Link data-slot="button" label="Talk to Our Experts" style={{ '--bg-color': '#c62828', '--hover-bg-color': '#a00000', color: '#fff' }} className="btn-text-white inline-flex shrink-0 cursor-pointer items-center justify-center bg-(--bg-color) whitespace-nowrap transition-all outline-none hover:bg-(--hover-bg-color) focus-visible:border-primary-border focus-visible:ring-[3px] focus-visible:ring-primary-interactive-bg disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-error-border aria-invalid:ring-error-interactive-bg [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])] :size-4 border border-black hover:border-black gap-2 px-5 py-2.5 has-[>svg:first-child]:pr-4 has-[>svg:last-child]:pl-4 has-[>svg:only-child]:px-2.5 rounded-3xl" to="#contact-info">
                                             <span className="min-w-0 overflow-hidden text-ellipsis [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-body-sm-em-font-size)', '--typography-font-weight': 'var(--typography-body-sm-em-font-weight)', '--typography-line-height': 'var(--typography-body-sm-em-line-height)', '--typography-letter-spacing': 'var(--typography-body-sm-em-letter-spacing)', '--typography-font-family': 'var(--typography-body-sm-em-font-family)', color: '#fff' }}>Talk to Our Experts</span>
                                         </Link>
@@ -52,16 +52,16 @@ const Contact = () => {
                 <section className="w-full" style={{contain: 'layout style paint'}}>
                     <div className="relative">
                         <div className="absolute inset-0" style={{borderRadius: 'inherit', background: '#FFF8E4'}}></div>
-                        <div className="relative mx-auto max-w-[1536px] px-6 flex w-full flex-col gap-4 py-16 @tablet:py-24 @tablet:gap-6 items-start text-left" style={{zIndex: '10'}}>
+                        <div className="relative mx-auto max-w-[1536px] px-6 flex w-full flex-col gap-4 py-16 md:py-24 md:gap-6 items-start text-left" style={{zIndex: '10'}}>
                             <div className="flex items-baseline gap-1">
                                 <div className="flex items-center">
                                     <div className="h-0 w-4 border-t" style={{borderColor: '#1b1b16'}}></div>
                                 </div>
                                 <span className="[font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{'--typography-font-size': 'var(--typography-label-md-font-size)', '--typography-font-weight': 'var(--typography-label-md-font-weight)', '--typography-line-height': 'var(--typography-label-md-line-height)', '--typography-letter-spacing': 'var(--typography-label-md-letter-spacing)', '--typography-font-family': 'var(--typography-label-md-font-family)', color: '#1b1b16'}}>Contact Electra Wires</span>
                             </div>
-                            <div className="flex w-full flex-col gap-4 @tablet:gap-8 @desktop:flex-row items-start">
-                                <h2 className="w-full @tablet:max-w-120 @desktop:basis-1/2 [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{'--typography-font-size': 'var(--typography-display-sm-font-size)', '--typography-font-weight': 'var(--typography-display-sm-font-weight)', '--typography-line-height': 'var(--typography-display-sm-line-height)', '--typography-letter-spacing': 'var(--typography-display-sm-letter-spacing)', '--typography-font-family': 'var(--typography-display-sm-font-family)', color: '#060603'}}>Visit Our Office in New Delhi for Expert Support</h2>
-                                <p className="whitespace-pre-line w-full @tablet:max-w-2xl text-left @desktop:basis-1/2 [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{'--typography-font-size': 'var(--typography-body-md-font-size)', '--typography-font-weight': 'var(--typography-body-md-font-weight)', '--typography-line-height': 'var(--typography-body-md-line-height)', '--typography-letter-spacing': 'var(--typography-body-md-letter-spacing)', '--typography-font-family': 'var(--typography-body-md-font-family)', color: '#1b1b16'}}>Connect with Electra Wires for trusted electrical wires, FR cables, and industrial solutions. Our team is ready to guide you with the best products for your requirements.</p>
+                            <div className="flex w-full flex-col gap-4 md:gap-8 lg:flex-row items-start">
+                                <h2 className="w-full md:max-w-120 lg:basis-1/2 [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{'--typography-font-size': 'var(--typography-display-sm-font-size)', '--typography-font-weight': 'var(--typography-display-sm-font-weight)', '--typography-line-height': 'var(--typography-display-sm-line-height)', '--typography-letter-spacing': 'var(--typography-display-sm-letter-spacing)', '--typography-font-family': 'var(--typography-display-sm-font-family)', color: '#060603'}}>Visit Our Office in New Delhi for Expert Support</h2>
+                                <p className="whitespace-pre-line w-full md:max-w-2xl text-left lg:basis-1/2 [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{'--typography-font-size': 'var(--typography-body-md-font-size)', '--typography-font-weight': 'var(--typography-body-md-font-weight)', '--typography-line-height': 'var(--typography-body-md-line-height)', '--typography-letter-spacing': 'var(--typography-body-md-letter-spacing)', '--typography-font-family': 'var(--typography-body-md-font-family)', color: '#1b1b16'}}>Connect with Electra Wires for trusted electrical wires, FR cables, and industrial solutions. Our team is ready to guide you with the best products for your requirements.</p>
                             </div>
                         </div>
                     </div>
@@ -71,8 +71,8 @@ const Contact = () => {
                 <section className="w-full" style={{contain: 'layout style paint'}}>
                     <div className="relative">
                         <div className="absolute inset-0" style={{borderRadius: 'inherit', background: '#FFF8E4'}}></div>
-                        <div className="relative mx-auto max-w-[1536px] px-6 flex flex-col gap-16 py-16 @tablet:py-24 @desktop:flex-row" style={{zIndex: '10'}}>
-                            <div className="flex w-full flex-col justify-center @desktop:basis-1/2 order-1 @desktop:order-1">
+                        <div className="relative mx-auto max-w-[1536px] px-6 flex flex-col gap-16 py-16 md:py-24 lg:flex-row" style={{zIndex: '10'}}>
+                            <div className="flex w-full flex-col justify-center lg:basis-1/2 order-1 lg:order-1">
                                 <div className="flex w-full flex-col gap-8">
                                     <div className="flex flex-col gap-4">
                                         <div className="flex items-baseline gap-1">
@@ -128,13 +128,13 @@ const Contact = () => {
                                             <label className="[font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{'--typography-font-size': 'var(--typography-label-sm-font-size)', '--typography-font-weight': 'var(--typography-label-sm-font-weight)', '--typography-line-height': 'var(--typography-label-sm-line-height)', '--typography-letter-spacing': 'var(--typography-label-sm-letter-spacing)', '--typography-font-family': 'var(--typography-label-sm-font-family)', color: '#1b1b16'}} htmlFor="_R_2d9l4lviv9fivb_-message">Project Details / Requirements</label>
                                             <textarea data-slot="textarea" id="_R_2d9l4lviv9fivb_-message" type="textarea" maxLength="5000" name="message" style={{'--bg-color': 'transparent', '--hover-bg-color': '#efe8d6', '--border-color': '#4b4b46', '--hover-border-color': '#4b4b46', color: '#1b1b16', borderColor: '#4b4b46'}} className="flex min-h-40 w-full resize-y border border-(--border-color) bg-(--bg-color) [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing) transition-all placeholder:opacity-50 hover:border-(--hover-border-color) hover:bg-(--hover-bg-color) focus-visible:bg-(--hover-bg-color) focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-error-border aria-invalid:ring-error-interactive-bg px-5 py-3 rounded-3xl"></textarea>
                                         </div>
-                                        <button data-slot="button" type="submit" label="Submit Inquiry" style={{ '--bg-color': '#c62828', '--hover-bg-color': '#a00000', color: '#fff' }} className="btn-text-white inline-flex shrink-0 cursor-pointer items-center justify-center bg-(--bg-color) whitespace-nowrap transition-all outline-none hover:bg-(--hover-bg-color) focus-visible:border-primary-border focus-visible:ring-[3px] focus-visible:ring-primary-interactive-bg disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-error-border aria-invalid:ring-error-interactive-bg border border-black hover:border-black gap-2 px-5 py-2.5 has-[>svg:first-child]:pr-4 has-[>svg:last-child]:pl-4 has-[>svg:only-child]:px-2.5 rounded-3xl w-full @tablet:w-auto">
+                                        <button data-slot="button" type="submit" label="Submit Inquiry" style={{ '--bg-color': '#c62828', '--hover-bg-color': '#a00000', color: '#fff' }} className="btn-text-white inline-flex shrink-0 cursor-pointer items-center justify-center bg-(--bg-color) whitespace-nowrap transition-all outline-none hover:bg-(--hover-bg-color) focus-visible:border-primary-border focus-visible:ring-[3px] focus-visible:ring-primary-interactive-bg disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-error-border aria-invalid:ring-error-interactive-bg border border-black hover:border-black gap-2 px-5 py-2.5 has-[>svg:first-child]:pr-4 has-[>svg:last-child]:pl-4 has-[>svg:only-child]:px-2.5 rounded-3xl w-full md:w-auto">
                                             <span className="min-w-0 overflow-hidden text-ellipsis [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-body-sm-em-font-size)', '--typography-font-weight': 'var(--typography-body-sm-em-font-weight)', '--typography-line-height': 'var(--typography-body-sm-em-line-height)', '--typography-letter-spacing': 'var(--typography-body-sm-em-letter-spacing)', '--typography-font-family': 'var(--typography-body-sm-em-font-family)', color: '#fff' }}>Submit Inquiry</span>
                                         </button>
                                     </form>
                                 </div>
                             </div>
-                            <div className="relative aspect-square w-full overflow-hidden @tablet:aspect-4/3 @desktop:aspect-auto @desktop:basis-1/2 @desktop:self-stretch order-2 @desktop:order-2">
+                            <div className="relative aspect-square w-full overflow-hidden md:aspect-4/3 lg:aspect-auto lg:basis-1/2 lg:self-stretch order-2 lg:order-2">
                                 <div className="relative rounded-3xl overflow-hidden h-full w-full object-cover">
                                     <img alt="Industrial close-up aesthetic shot of FR PVC electrical wires" fetchPriority="auto" loading="lazy" decoding="async" data-nimg="fill" className="h-full w-full object-cover" style={{position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', objectPosition: '50% 50%', color: 'transparent', transformOrigin: '50% 50%'}} sizes="(max-width: 1024px) 100vw, 50vw" src="/_next/5ea20847-ef3e-4fc3-bdc6-005529a108a4-QAQNAK7eKDfYUPy4rqsWEO3UZPRJKi53b3.png"/>
                                 </div>
@@ -160,7 +160,7 @@ const Contact = () => {
                 <section className="w-full" style={{contain: 'layout style paint'}}>
                     <div className="relative" style={{paddingBottom: '488px'}}>
                         <div className="absolute inset-0" style={{borderRadius: 'inherit', background: 'transparent'}}></div>
-                        <div className="relative mx-auto max-w-[1536px] px-6 flex flex-col gap-12 py-16 @tablet:py-24 @desktop:grid @desktop:grid-cols-2" style={{zIndex: '10'}}>
+                        <div className="relative mx-auto max-w-[1536px] px-6 flex flex-col gap-12 py-16 md:py-24 lg:grid lg:grid-cols-2" style={{zIndex: '10'}}>
                             <div className="flex max-w-xl flex-col gap-4">
                                 <div className="flex items-baseline gap-1">
                                     <div className="flex items-center">
@@ -174,12 +174,12 @@ const Contact = () => {
                                     <img 
                                         src="/images/electrical_wires_3d.png" 
                                         alt="3D Industrial Electrical Wires" 
-                                        className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700 aspect-square @desktop:aspect-[4/3]" 
+                                        className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700 aspect-square lg:aspect-[4/3]" 
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
                                     <div className="absolute bottom-6 left-6 right-6 text-white z-20">
-                                        <h3 className="text-xl @tablet:text-2xl font-bold mb-1">Premium Quality Wires</h3>
-                                        <p className="text-xs @tablet:text-sm opacity-90">Engineered for durability and safety.</p>
+                                        <h3 className="text-xl md:text-2xl font-bold mb-1">Premium Quality Wires</h3>
+                                        <p className="text-xs md:text-sm opacity-90">Engineered for durability and safety.</p>
                                     </div>
                                 </div>
                             </div>
@@ -212,47 +212,47 @@ const Contact = () => {
                             </div>
                         </div>
                         {/* Quick Contact Cards */}
-                        <div className="w-full relative z-20 py-8 @tablet:py-16" id="quick-contact">
+                        <div className="w-full relative z-20 py-8 md:py-16" id="quick-contact">
                             <div className="mx-auto max-w-[1536px] px-6">
-                                <div className="grid grid-cols-1 @tablet:grid-cols-3 gap-8 @desktop:gap-12 justify-center items-center">
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 justify-center items-center">
                                     {/* Card 1 */}
-                                    <div className="relative w-64 h-64 @desktop:w-[320px] @desktop:h-[320px] rounded-full flex flex-col items-center justify-center p-8 text-center mx-auto transition-transform hover:scale-105 duration-300 group overflow-hidden" style={{backgroundColor: 'transparent', border: '1px solid #111827'}}>
+                                    <div className="relative w-64 h-64 lg:w-[320px] lg:h-[320px] rounded-full flex flex-col items-center justify-center p-8 text-center mx-auto transition-transform hover:scale-105 duration-300 group overflow-hidden" style={{backgroundColor: 'transparent', border: '1px solid #111827'}}>
                                         <div className="relative z-10 flex flex-col items-center">
-                                            <div className="w-16 h-16 @desktop:w-20 @desktop:h-20 rounded-full flex items-center justify-center mb-4 shrink-0" style={{backgroundColor: '#c62828', color: '#ffffff'}}>
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 @desktop:h-10 @desktop:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                                            <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full flex items-center justify-center mb-4 shrink-0" style={{backgroundColor: '#c62828', color: '#ffffff'}}>
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 lg:h-10 lg:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                                                     <circle cx="12" cy="11.5" r="3.5" fill="none" strokeWidth={1} />
                                                     <text x="12" y="13.5" fontFamily="Arial" fontSize="6" textAnchor="middle" fontWeight="bold" stroke="none" fill="currentColor">@</text>
                                                 </svg>
                                             </div>
-                                            <h3 className="text-lg @desktop:text-xl font-bold mb-1" style={{color: '#111827'}}>Email id</h3>
-                                            <p className="text-sm @desktop:text-base font-medium" style={{color: '#374151'}}>neelkanthimpex51@gmail.com</p>
+                                            <h3 className="text-lg lg:text-xl font-bold mb-1" style={{color: '#111827'}}>Email id</h3>
+                                            <p className="text-sm lg:text-base font-medium" style={{color: '#374151'}}>neelkanthimpex51@gmail.com</p>
                                         </div>
                                     </div>
 
                                     {/* Card 2 */}
-                                    <div className="relative w-64 h-64 @desktop:w-[320px] @desktop:h-[320px] rounded-full flex flex-col items-center justify-center p-8 text-center mx-auto transition-transform hover:scale-105 duration-300 group overflow-hidden" style={{backgroundColor: 'transparent', border: '1px solid #111827'}}>
+                                    <div className="relative w-64 h-64 lg:w-[320px] lg:h-[320px] rounded-full flex flex-col items-center justify-center p-8 text-center mx-auto transition-transform hover:scale-105 duration-300 group overflow-hidden" style={{backgroundColor: 'transparent', border: '1px solid #111827'}}>
                                         <div className="relative z-10 flex flex-col items-center">
-                                            <div className="w-16 h-16 @desktop:w-20 @desktop:h-20 rounded-full flex items-center justify-center mb-4 shrink-0" style={{backgroundColor: '#c62828', color: '#ffffff'}}>
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 @desktop:h-9 @desktop:w-9" fill="currentColor" viewBox="0 0 24 24">
+                                            <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full flex items-center justify-center mb-4 shrink-0" style={{backgroundColor: '#c62828', color: '#ffffff'}}>
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 lg:h-9 lg:w-9" fill="currentColor" viewBox="0 0 24 24">
                                                     <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27c1.12.37 2.33.57 3.58.57 1.1 0 2 .9 2 2v3.5a2 2 0 01-2 2C9.39 23 1 14.61 1 4.5 1 3.4 1.9 2.5 3 2.5h3.5c1.1 0 2 .9 2 2 0 1.25.2 2.46.57 3.58.1.35.03.74-.27 1.11l-2.18 2.2z"/>
                                                 </svg>
                                             </div>
-                                            <h3 className="text-lg @desktop:text-xl font-bold mb-1" style={{color: '#111827'}}>Phone no</h3>
-                                            <p className="text-sm @desktop:text-base font-medium" style={{color: '#374151'}}>+91-8684800529</p>
+                                            <h3 className="text-lg lg:text-xl font-bold mb-1" style={{color: '#111827'}}>Phone no</h3>
+                                            <p className="text-sm lg:text-base font-medium" style={{color: '#374151'}}>+91-8684800529</p>
                                         </div>
                                     </div>
 
                                     {/* Card 3 */}
-                                    <div className="relative w-64 h-64 @desktop:w-[320px] @desktop:h-[320px] rounded-full flex flex-col items-center justify-center p-8 text-center mx-auto transition-transform hover:scale-105 duration-300 group overflow-hidden" style={{backgroundColor: 'transparent', border: '1px solid #111827'}}>
+                                    <div className="relative w-64 h-64 lg:w-[320px] lg:h-[320px] rounded-full flex flex-col items-center justify-center p-8 text-center mx-auto transition-transform hover:scale-105 duration-300 group overflow-hidden" style={{backgroundColor: 'transparent', border: '1px solid #111827'}}>
                                         <div className="relative z-10 flex flex-col items-center">
-                                            <div className="w-16 h-16 @desktop:w-20 @desktop:h-20 rounded-full flex items-center justify-center mb-4 shrink-0" style={{backgroundColor: '#c62828', color: '#ffffff'}}>
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 @desktop:h-10 @desktop:w-10" fill="currentColor" viewBox="0 0 24 24">
+                                            <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full flex items-center justify-center mb-4 shrink-0" style={{backgroundColor: '#c62828', color: '#ffffff'}}>
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 lg:h-10 lg:w-10" fill="currentColor" viewBox="0 0 24 24">
                                                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/>
                                                 </svg>
                                             </div>
-                                            <h3 className="text-lg @desktop:text-xl font-bold mb-1" style={{color: '#111827'}}>Address</h3>
-                                            <p className="text-[11px] @desktop:text-xs font-medium leading-relaxed" style={{color: '#374151'}}>Shed No - 5, Vivek Vihar Phase 2,<br/>Block-A, Jhilmil Industrial Area,<br/>Jhilmil Colony, Delhi, 110095</p>
+                                            <h3 className="text-lg lg:text-xl font-bold mb-1" style={{color: '#111827'}}>Address</h3>
+                                            <p className="text-[11px] lg:text-xs font-medium leading-relaxed" style={{color: '#374151'}}>Shed No - 5, Vivek Vihar Phase 2,<br/>Block-A, Jhilmil Industrial Area,<br/>Jhilmil Colony, Delhi, 110095</p>
                                         </div>
                                     </div>
                                 </div>
