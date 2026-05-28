@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+html, body { 
+    background-color: #fbfaf5; 
+    font-family: 'Poppins', sans-serif !important;
+    min-height: 100vh;
+}
+        @container root (min-width: 0) {
+            .website-container[data-theme-scope="elegant-serif"] * {
+			--font-size-xs: clamp(12px, 0.85vw, 13px) !important;
+			--font-size-sm: clamp(13px, 0.9vw, 14px) !important;
+			--font-size-base: clamp(14px, 1vw, 16px) !important;
+			--font-size-lg: clamp(1.05rem, 1.25vw, 1.25rem) !important;
+			--font-size-xl: clamp(1.15rem, 1.5vw, 1.5rem) !important;
+			--font-size-2xl: clamp(1.25rem, 1.75vw, 1.75rem) !important;
+			--font-size-3xl: clamp(1.4rem, 2vw, 2rem) !important;
+			--font-size-4xl: clamp(1.6rem, 2.25vw, 2.4rem) !important;
+			--font-size-5xl: clamp(1.8rem, 2.5vw, 2.8rem) !important;
+			--font-size-6xl: clamp(2rem, 3vw, 3.2rem) !important;
+			--font-size-7xl: clamp(2.2rem, 3.5vw, 3.6rem) !important;
+			--font-size-8xl: clamp(2.5rem, 4vw, 4rem) !important;
+			--font-size-9xl: clamp(3rem, 5vw, 5rem) !important;
+			--typography-display-lg-font-size: var(--font-size-6xl) !important;
+			--typography-display-lg-font-weight: 700 !important;
+			--typography-display-lg-line-height: 1.25 !important;
+			--typography-display-lg-letter-spacing: 0em !important;
+			--typography-display-lg-font-family: 'Poppins', sans-serif !important;
+			--typography-display-md-font-size: var(--font-size-5xl) !important;
+			--typography-display-md-font-weight: 600 !important;
+			--typography-display-md-line-height: 1.25 !important;
+			--typography-display-md-letter-spacing: 0em !important;
+			--typography-display-md-font-family: 'Poppins', sans-serif !important;
+			--typography-display-sm-font-size: var(--font-size-4xl) !important;
+			--typography-display-sm-font-weight: 600 !important;
+			--typography-display-sm-line-height: 1.25 !important;
+			--typography-display-sm-letter-spacing: 0em !important;
+			--typography-display-sm-font-family: 'Poppins', sans-serif !important;
+			--typography-heading-lg-font-size: var(--font-size-3xl) !important;
+			--typography-heading-lg-font-weight: 600 !important;
+			--typography-heading-lg-line-height: 1.25 !important;
+			--typography-heading-lg-letter-spacing: -0.025em !important;
+			--typography-heading-lg-font-family: 'Poppins', sans-serif !important;
+			--typography-heading-md-font-size: var(--font-size-2xl) !important;
+			--typography-heading-md-font-weight: 600 !important;
+			--typography-heading-md-line-height: 1.25 !important;
+			--typography-heading-md-letter-spacing: 0em !important;
+			--typography-heading-md-font-family: 'Poppins', sans-serif !important;
+			--typography-heading-sm-font-size: var(--font-size-xl) !important;
+			--typography-heading-sm-font-weight: 600 !important;
+			--typography-heading-sm-line-height: 1.5 !important;
+			--typography-heading-sm-letter-spacing: 0em !important;
+			--typography-heading-sm-font-family: 'Poppins', sans-serif !important;
+			--typography-title-lg-font-size: var(--font-size-xl) !important;
+			--typography-title-lg-font-weight: 600 !important;
+			--typography-title-lg-line-height: 1.5 !important;
+			--typography-title-lg-letter-spacing: 0em !important;
+			--typography-title-lg-font-family: 'Poppins', sans-serif !important;
+			--typography-title-md-font-size: var(--font-size-lg) !important;
+			--typography-title-md-font-weight: 600 !important;
+			--typography-title-md-line-height: 1.5 !important;
+			--typography-title-md-letter-spacing: 0em !important;
+			--typography-title-md-font-family: 'Poppins', sans-serif !important;
+			--typography-title-sm-font-size: var(--font-size-base) !important;
+			--typography-title-sm-font-weight: 600 !important;
+			--typography-title-sm-line-height: 1.5 !important;
+			--typography-title-sm-letter-spacing: 0em !important;
+			--typography-title-sm-font-family: 'Poppins', sans-serif !important;
+			--typography-body-lg-font-size: var(--font-size-lg) !important;
+			--typography-body-lg-font-weight: 400 !important;
+			--typography-body-lg-line-height: 1.625 !important;
+			--typography-body-lg-letter-spacing: 0em !important;
+			--typography-body-lg-font-family: 'Poppins', sans-serif !important;
+			--typography-body-md-font-size: var(--font-size-base) !important;
+			--typography-body-md-font-weight: 400 !important;
+			--typography-body-md-line-height: 1.5 !important;
+			--typography-body-md-letter-spacing: 0em !important;
+			--typography-body-md-font-family: 'Poppins', sans-serif !important;
+			--typography-body-sm-font-size: var(--font-size-sm) !important;
+			--typography-body-sm-font-weight: 400 !important;
+			--typography-body-sm-line-height: 1.5 !important;
+			--typography-body-sm-letter-spacing: 0em !important;
+			--typography-body-sm-font-family: 'Poppins', sans-serif !important;
+			--typography-body-lg-em-font-size: var(--font-size-lg) !important;
+			--typography-body-lg-em-font-weight: 600 !important;
+			--typography-body-lg-em-line-height: 1.625 !important;
+			--typography-body-lg-em-letter-spacing: 0em !important;
+			--typography-body-lg-em-font-family: 'Poppins', sans-serif !important;
+			--typography-body-md-em-font-size: var(--font-size-base) !important;
+			--typography-body-md-em-font-weight: 600 !important;
+			--typography-body-md-em-line-height: 1.5 !important;
+			--typography-body-md-em-letter-spacing: 0em !important;
+			--typography-body-md-em-font-family: 'Poppins', sans-serif !important;
+			--typography-body-sm-em-font-size: var(--font-size-sm) !important;
+			--typography-body-sm-em-font-weight: 600 !important;
+			--typography-body-sm-em-line-height: 1.5 !important;
+			--typography-body-sm-em-letter-spacing: 0em !important;
+			--typography-body-sm-em-font-family: 'Poppins', sans-serif !important;
+			--typography-label-lg-font-size: var(--font-size-sm) !important;
+			--typography-label-lg-font-weight: 500 !important;
+			--typography-label-lg-line-height: 1.5 !important;
+			--typography-label-lg-letter-spacing: 0.025em !important;
+			--typography-label-lg-font-family: 'Poppins', sans-serif !important;
+			--typography-label-md-font-size: var(--font-size-xs) !important;
+			--typography-label-md-font-weight: 500 !important;
+			--typography-label-md-line-height: 1.5 !important;
+			--typography-label-md-letter-spacing: 0.025em !important;
+			--typography-label-md-font-family: 'Poppins', sans-serif !important;
+			--typography-label-sm-font-size: var(--font-size-xs) !important;
+			--typography-label-sm-font-weight: 400 !important;
+			--typography-label-sm-line-height: 1.5 !important;
+			--typography-label-sm-letter-spacing: 0em !important;
+			--typography-label-sm-font-family: 'Poppins', sans-serif !important;
+			--typography-code-font-size: var(--font-size-sm) !important;
+			--typography-code-font-weight: 400 !important;
+			--typography-code-line-height: 1.5 !important;
+			--typography-code-letter-spacing: 0em !important;
+			--typography-code-font-family: var(--font-jetbrains-mono, "JetBrains Mono", sans-serif) !important;
+            }
+        }
+	
+
+.website-container { overflow-x:hidden !important;overflow-y:auto !important;overflow-anchor:none !important;container-name:root !important;container-type:size !important;height:100%;position:relative;isolation:isolate; }
+
+/* Reset and base styles */
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* ========================================================================== */
+/* PREMIUM DESIGN SYSTEM: INDUSTRIAL MINIMALISM                                */
+/* High-performance, SEO-friendly, and Brand-aligned Background               */
+/* ========================================================================== */
+
+/* ========================================================================== */
+/* PREMIUM DESIGN: LAYERED GEOMETRIC SQUARES                                   */
+/* Professional, minimal, and performance-optimized for Electra Wires          */
+/* ========================================================================== */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif !important;
+    background-color: #fbfaf5;
+    background-repeat: no-repeat;
+}
+
+/* Maintain global section transparency to allow the geometric design to show through */
+section, 
+main, 
+.website-container, 
+#root {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+.website-container {
+    position: relative;
+}
+
+.website-container::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: url("/backgrounds/electrical-wire-background.jpg");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    opacity: 1;
+    isolation: isolate;
+}
+
+header {
+    position: fixed;
+    z-index: 9999 !important;
+}
+
+.website-container section > div > .absolute.inset-0:not([class*="z-"]) {
+    background-color: rgba(255, 248, 228, 0.22) !important;
+    backdrop-filter: none;
+}
+
+.site-footer-card {
+    background-color: rgba(255, 248, 228, 0.28) !important;
+    backdrop-filter: none;
+}
+
+.website-container footer .relative > .relative.mx-auto > .flex.flex-col.overflow-hidden.rounded-3xl {
+    background-color: rgba(255, 248, 228, 0.28) !important;
+    backdrop-filter: none;
+}
+
+.website-container main,
+.website-container footer {
+    color: #1b1b16 !important;
+}
+
+.website-container main :where(p, span, a, li, label, input, textarea, select, option, strong, small, em, b, i, code, figcaption, blockquote, dt, dd, th, td),
+.website-container footer :where(p, span, a, li, label, input, textarea, select, option, strong, small, em, b, i, code, figcaption, blockquote, dt, dd, th, td) {
+    color: #2a2a24 !important;
+}
+
+.website-container main :where( h2, h3, h4, h5, h6),
+.website-container footer :where(h1, h2, h3, h4, h5, h6) {
+    color: #15120e !important;
+}
+.website-container main :where(h1) {
+    color: #ffffff !important;
+}
+.website-container main :where(p, span, a, li, label, input, textarea, select, option, strong, small, em, b, i, code, figcaption, blockquote, dt, dd, th, td),
+.website-container footer :where(p, span, a, li, label, input, textarea, select, option, strong, small, em, b, i, code, figcaption, blockquote, dt, dd, th, td) {
+    text-shadow: none;
+}
+
+
+.website-container main h1#products-main-title { color: #000000 !important; }
+.website-container main h1#blogs-main-title { color: #000000 !important; }
+
+
+/* WAVY BLOB EFFECT BEHIND H2 HEADINGS */
+.website-container main h2 {
+    position: relative;
+    z-index: 1;
+}
+
+.website-container main h2::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(232, 163, 23, 0.25) 0%, rgba(232, 163, 23, 0) 70%);
+    transform: translate(-30%, -50%);
+    z-index: -1;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: blobWave 10s infinite alternate ease-in-out;
+}
+
+@keyframes blobWave {
+    0% {
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        transform: translate(-30%, -50%) rotate(0deg) scale(1);
+    }
+    100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        transform: translate(-20%, -50%) rotate(45deg) scale(1.15);
+    }
+}
+
+/* Homepage Hero text visibility and size overrides */
+.website-container main .homepage-hero-span,
+.website-container main .homepage-hero-span span {
+    color: #ffffff !important;
+    font-size: clamp(12px, 0.85vw, 13px) !important;
+    letter-spacing: 0.2em !important;
+}
+
+.website-container main .homepage-hero-h1,
+.website-container main .homepage-hero-h1 span {
+    font-size: clamp(2rem, 3vw, 3.2rem) !important;
+    line-height: 1.2 !important;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+.website-container main .homepage-hero-p,
+.website-container main .homepage-hero-p span {
+    color: #ffffff !important;
+    font-size: clamp(1.05rem, 1.25vw, 1.25rem) !important;
+    line-height: 1.6 !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Force white text for buttons with .btn-text-white class and make them slightly bold */
+.website-container .btn-text-white,
+.website-container .btn-text-white * {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+}
+
+/* Force white color for about page hero numeric text */
+.website-container main .about-hero-numeric,
+.website-container main .about-hero-numeric *,
+.website-container main .about-hero-numeric .gsap-stat-number-dynamic {
+    color: #ffffff !important;
+}
+
+/* Force black outline on all buttons globally */
+.website-container button:not(.faq-button):not(.nav-icon-button),
+.website-container a[data-slot="button"]:not(.nav-icon-button) {
+    border: 1px solid #000000 !important;
+}
+
+/* Hide scrollbar utility */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none !important;
+}
+.hide-scrollbar {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+}
+
+/* Drawer and Header Logo Constraints to prevent stretching */
+.drawer-logo {
+    height: 32px !important;
+    width: auto !important;
+    max-width: 140px !important;
+    object-fit: contain !important;
+}
+
+.header-logo {
+    height: 40px !important;
+    width: auto !important;
+    max-width: 180px !important;
+    object-fit: contain !important;
+}
