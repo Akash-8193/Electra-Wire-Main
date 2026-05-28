@@ -41,10 +41,10 @@ const Header = () => {
           className="relative mx-auto max-w-[1536px] px-6"
           style={{ zIndex: '10' }}
         >
-          <div className="relative mt-4 p-1 rounded-3xl @desktop:pl-4 transition-all duration-500">
+          <div className="relative mt-4 p-1 rounded-3xl lg:pl-4 transition-all duration-500">
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 rounded-3xl backdrop-blur-lg transition-all duration-500 hidden @tablet:block"
+              className="pointer-events-none absolute inset-0 rounded-3xl backdrop-blur-lg transition-all duration-500 hidden md:block"
               style={{ backgroundColor: bgColor, boxShadow: shadow }}
             />
             <div className="flex w-full items-center gap-4 relative">
@@ -78,11 +78,11 @@ const Header = () => {
                     />
                   </svg>
                 </button>
-                <Link className="hidden @tablet:flex items-center" aria-label="Home" to="/">
+                <Link className="hidden md:flex items-center" aria-label="Home" to="/">
                   <img
                     src="/images/electra-wires-logo.png"
                     alt="Electra Wires"
-                    className="h-10 w-auto max-w-[180px] object-contain shrink-0 @tablet:h-11 @desktop:h-12"
+                    className="h-10 w-auto max-w-[180px] object-contain shrink-0 md:h-11 lg:h-12"
                   />
                 </Link>
               </div>
@@ -177,7 +177,7 @@ const Header = () => {
                       viewBox="0 0 24 24"
                       width="24"
                       height="24"
-                      className="size-5 @tablet:size-3 transition-colors duration-500 hover:text-[#c62828]"
+                      className="size-5 md:size-3 transition-colors duration-500 hover:text-[#c62828]"
                       style={{ color: textColor }}
                     >
                       <path
@@ -189,7 +189,7 @@ const Header = () => {
                     </svg>
                   </a>
                 </div>
-                <div className="hidden @tablet:flex items-center gap-3">
+                <div className="hidden md:flex items-center gap-3">
                   <a
                     data-slot="button"
                     label="Call Us Now"
@@ -224,7 +224,7 @@ const Header = () => {
       </div>
 
       {/* Mobile Menu Drawer */}
-      <div className={`fixed inset-0 z-[100] bg-black/50 transition-opacity duration-300 @desktop:hidden ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} onClick={() => setIsMenuOpen(false)}>
+      <div className={`fixed inset-0 z-[100] bg-black/50 transition-opacity duration-300 lg:hidden ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} onClick={() => setIsMenuOpen(false)}>
         <div className={`fixed top-0 left-0 w-3/4 max-w-sm h-full shadow-2xl transition-transform duration-500 ease-in-out flex flex-col p-6 z-[101] ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}`} style={{ backgroundColor: '#ffffff' }} onClick={(e) => e.stopPropagation()}>
           <div className="flex items-center justify-between mb-8 gap-4">
             <img src="/images/electra-wires-logo.png" alt="Electra Wires" className="drawer-logo" />

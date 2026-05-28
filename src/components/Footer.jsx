@@ -7,16 +7,16 @@ const Footer = () => {
             <div className="relative">
                 <div className="relative mx-auto max-w-[1536px] px-6 py-4" style={{ zIndex: '10' }}>
                     <div style={{ '--bg-color': '#FFF8E4' }} className="flex flex-col overflow-hidden rounded-3xl">
-                        <div className="grid grid-cols-1 @tablet:grid-cols-2 @desktop:grid-cols-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                             {/* Column 1: Logo */}
-                            <div className="flex flex-col justify-center gap-5 p-8 not-last:border-b @tablet:p-6 @desktop:border-b-0! @tablet:border-b-0! @tablet:border-r @desktop:border-r" style={{ borderColor: '#70706a' }}>
+                            <div className="flex flex-col justify-center gap-5 p-8 not-last:border-b md:p-6 lg:border-b-0! md:border-b-0! md:border-r lg:border-r" style={{ borderColor: '#70706a' }}>
                                 <Link className="flex items-center justify-center" aria-label="Home" to="/">
                                     <img src="/electra-logo.png" alt="Electra Wires Logo" className="h-18 w-auto object-contain" />
                                 </Link>
                             </div>
 
                             {/* Column 2: Quick Links */}
-                            <div className="flex flex-col gap-5 p-8 not-last:border-b @tablet:p-6 @desktop:border-b-0! @tablet:border-b-0! @desktop:border-r" style={{ borderColor: '#70706a' }}>
+                            <div className="flex flex-col gap-5 p-8 not-last:border-b md:p-6 lg:border-b-0! md:border-b-0! lg:border-r" style={{ borderColor: '#70706a' }}>
                                 <p className="[font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-body-sm-em-font-size)', '--typography-font-weight': 'var(--typography-body-sm-em-font-weight)', '--typography-line-height': 'var(--typography-body-sm-em-line-height)', '--typography-letter-spacing': 'var(--typography-body-sm-em-letter-spacing)', '--typography-font-family': 'var(--typography-body-sm-em-font-family)', color: '#040402' }}>Quick Links</p>
                                 <div className="flex flex-col gap-2">
                                     <Link to="/"><span className="[font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-body-sm-font-size)', '--typography-font-weight': 'var(--typography-body-sm-font-weight)', '--typography-line-height': 'var(--typography-body-sm-line-height)', '--typography-letter-spacing': 'var(--typography-body-sm-letter-spacing)', '--typography-font-family': 'var(--typography-body-sm-font-family)', color: '#1b1b16' }}>Home</span></Link>
@@ -27,7 +27,7 @@ const Footer = () => {
                             </div>
 
                             {/* Column 3: Our Products */}
-                            <div className="flex flex-col gap-5 p-8 not-last:border-b @tablet:p-6 @desktop:border-b-0! @tablet:border-b-0! @tablet:border-r @desktop:border-r" style={{ borderColor: '#70706a' }}>
+                            <div className="flex flex-col gap-5 p-8 not-last:border-b md:p-6 lg:border-b-0! md:border-b-0! md:border-r lg:border-r" style={{ borderColor: '#70706a' }}>
                                 <p className="[font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-body-sm-em-font-size)', '--typography-font-weight': 'var(--typography-body-sm-em-font-weight)', '--typography-line-height': 'var(--typography-body-sm-em-line-height)', '--typography-letter-spacing': 'var(--typography-body-sm-em-letter-spacing)', '--typography-font-family': 'var(--typography-body-sm-em-font-family)', color: '#040402' }}>Our Products</p>
                                 <div className="flex flex-col gap-2">
                                     <Link to="/products"><span className="[font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-body-sm-font-size)', '--typography-font-weight': 'var(--typography-body-sm-font-weight)', '--typography-line-height': 'var(--typography-body-sm-line-height)', '--typography-letter-spacing': 'var(--typography-body-sm-letter-spacing)', '--typography-font-family': 'var(--typography-body-sm-font-family)', color: '#1b1b16' }}>House Wiring</span></Link>
@@ -38,7 +38,7 @@ const Footer = () => {
                             </div>
 
                             {/* Column 4: Contact Us */}
-                            <div className="flex flex-col gap-5 p-8 not-last:border-b @tablet:p-6 @desktop:border-b-0! @tablet:border-b-0!" style={{ borderColor: '#70706a' }}>
+                            <div className="flex flex-col gap-5 p-8 not-last:border-b md:p-6 lg:border-b-0! md:border-b-0!" style={{ borderColor: '#70706a' }}>
                                 <p className="[font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-body-sm-em-font-size)', '--typography-font-weight': 'var(--typography-body-sm-em-font-weight)', '--typography-line-height': 'var(--typography-body-sm-em-line-height)', '--typography-letter-spacing': 'var(--typography-body-sm-em-letter-spacing)', '--typography-font-family': 'var(--typography-body-sm-em-font-family)', color: '#040402' }}>Contact Us</p>
                                 <div className="flex flex-col gap-4">
                                     <div className="flex flex-col gap-1">
@@ -57,7 +57,7 @@ const Footer = () => {
                             </div>
                         </div>
                         <div role="separator" aria-orientation="horizontal" className="w-full" style={{ backgroundColor: '#70706a', height: '1px' }}></div>
-                        <div className="flex flex-col items-center justify-center gap-8 p-8 @tablet:flex-row @tablet:items-center @tablet:p-6 text-center">
+                        <div className="flex flex-col items-center justify-center gap-8 p-8 md:flex-row md:items-center md:p-6 text-center">
                             <p className="w-full min-w-0 [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-body-sm-font-size)', '--typography-font-weight': 'var(--typography-body-sm-font-weight)', '--typography-line-height': 'var(--typography-body-sm-line-height)', '--typography-letter-spacing': 'var(--typography-body-sm-letter-spacing)', '--typography-font-family': 'var(--typography-body-sm-font-family)', color: '#1b1b16' }}>© 2026 Electra Wires. All rights reserved. Developed by Sprint Digitech</p>
                         </div>
                     </div>

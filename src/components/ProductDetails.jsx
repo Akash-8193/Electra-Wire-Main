@@ -51,9 +51,9 @@ const ProductDetails = () => {
                                 </Link>
                             </div>
 
-                            <div className="flex flex-col @desktop:flex-row gap-12 @desktop:gap-20">
+                            <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
                                 {/* Left Side: Image with Zoom Effect */}
-                                <div className="w-full @desktop:w-1/2 flex-shrink-0">
+                                <div className="w-full lg:w-1/2 flex-shrink-0">
                                     <div style={{ '--bg-color': 'rgba(0%, 0%, 0%, 0.04764)', '--border-color': '#b0b0a8', borderColor: '#b0b0a8' }} className="bg-(--bg-color) border p-6 rounded-[32px] group overflow-hidden">
                                         <div className="overflow-hidden rounded-[28px] bg-[#f4efe2]" style={{ aspectRatio: '4/3' }}>
                                             <img 
@@ -67,13 +67,13 @@ const ProductDetails = () => {
                                 </div>
 
                                 {/* Right Side: Details */}
-                                <div className="w-full @desktop:w-1/2 flex flex-col justify-center">
+                                <div className="w-full lg:w-1/2 flex flex-col justify-center">
                                     <div className="flex items-baseline gap-2 mb-4">
                                         <div className="h-0 w-6 border-t" style={{ borderColor: '#c62828', borderWidth: '2px' }}></div>
                                         <span className="font-semibold tracking-wider uppercase text-sm" style={{ color: '#c62828' }}>Premium Selection</span>
                                     </div>
                                     
-                                    <h1 className="text-4xl @desktop:text-5xl font-bold mb-6" style={{ color: '#060603', lineHeight: '1.2' }}>
+                                    <h1 className="text-4xl lg:text-5xl font-bold mb-6" style={{ color: '#060603', lineHeight: '1.2' }}>
                                         {product.title}
                                     </h1>
                                     
@@ -103,14 +103,14 @@ const ProductDetails = () => {
             </div>
 
             {/* Related Products Section */}
-            <div className="w-full relative z-20 py-16 @tablet:py-24 border-t border-gray-200" style={{ background: '#FFF8E4' }}>
+            <div className="w-full relative z-20 py-16 md:py-24 border-t border-gray-200" style={{ background: '#FFF8E4' }}>
                 <div className="mx-auto max-w-[1536px] px-6">
                     <div className="flex flex-col items-center text-center mb-12">
-                        <h2 className="text-3xl @desktop:text-4xl font-bold mb-4" style={{ color: '#060603' }}>Related Products</h2>
+                        <h2 className="text-3xl lg:text-4xl font-bold mb-4" style={{ color: '#060603' }}>Related Products</h2>
                         <div className="h-1 w-20 bg-[#c62828] rounded-full"></div>
                     </div>
 
-                    <div className="grid grid-cols-1 @tablet:grid-cols-2 @desktop:grid-cols-3 gap-6 w-full">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
                         {relatedProducts.map((relProduct) => (
                             <Link to={`/product/${relProduct.slug}`} key={relProduct.id} className="group outline-none">
                                 <div style={{ '--bg-color': 'rgba(0%, 0%, 0%, 0.04764)', '--border-color': '#b0b0a8', borderColor: '#b0b0a8' }} className="bg-(--bg-color) border flex h-full flex-col gap-5 p-6 rounded-[32px] transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-lg">
