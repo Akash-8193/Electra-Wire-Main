@@ -59,7 +59,7 @@ const Header = () => {
                     boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
                     border: '1px solid rgba(0,0,0,0.1)'
                   }}
-                  className="nav-icon-button inline-flex shrink-0 cursor-pointer items-center justify-center whitespace-nowrap transition-all duration-300 outline-none hover:scale-105 active:scale-95 disabled:pointer-events-none disabled:opacity-50 p-3 rounded-full @desktop:hidden"
+                  className="nav-hamburger-override nav-icon-button inline-flex shrink-0 cursor-pointer items-center justify-center whitespace-nowrap transition-all duration-300 outline-none hover:scale-105 active:scale-95 disabled:pointer-events-none disabled:opacity-50 p-3 rounded-full @desktop:hidden"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +86,7 @@ const Header = () => {
                   />
                 </Link>
               </div>
-              <div className="hidden items-center gap-x-6 contain-layout @desktop:flex w-full justify-start">
+              <div className="nav-desktop-override hidden items-center gap-x-6 contain-layout @desktop:flex w-full justify-start">
                 <Link to="/">
                   <span
                     className="py-2 transition-colors duration-500 hover:text-[#c62828] [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)"
@@ -163,8 +163,8 @@ const Header = () => {
                   </span>
                 </Link>
               </div>
-              <div className="flex grow items-center justify-end gap-4">
-                <div className="items-center gap-3 @desktop:flex hidden">
+              <div className="nav-desktop-override hidden shrink-0 items-center justify-end gap-4 @desktop:flex">
+                <div className="nav-desktop-override items-center gap-3 @desktop:flex hidden">
                   <a
                     aria-label="Facebook पर हमें फॉलो करें"
                     target="_blank"

@@ -319,3 +319,15 @@ header {
     max-width: 180px !important;
     object-fit: contain !important;
 }
+
+/* =========================================
+   INCREMENTAL RESPONSIVENESS (PHASE 1)
+   ========================================= */
+
+/* Header/Navbar Zoom Fix: 
+   Triggers hamburger menu before nav items overflow on zoomed screens.
+   Uses isolated custom classes to avoid destroying original Tailwind layout logic. */
+@media (max-width: 1300px) {
+    .nav-desktop-override { display: none !important; }
+    .nav-hamburger-override { display: inline-flex !important; }
+}
