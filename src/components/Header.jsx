@@ -29,7 +29,7 @@ const DesktopHeader = ({ bgColor, shadow, textColor }) => (
           style={{ backgroundColor: bgColor, boxShadow: shadow }}
         />
 
-        <div className="relative flex w-full items-center gap-4">
+        <div className="relative flex w-full items-center" style={{ gap: 'clamp(12px, 1.5vw, 28px)' }}>
           <Link className="flex shrink-0 items-center" aria-label="Home" to="/">
             <img
               src="/images/electra-wires-logo.png"
@@ -38,7 +38,7 @@ const DesktopHeader = ({ bgColor, shadow, textColor }) => (
             />
           </Link>
 
-          <nav className="flex min-w-0 flex-1 items-center gap-x-4">
+          <nav className="flex min-w-0 flex-1 items-center flex-nowrap" style={{ gap: 'clamp(12px, 1.5vw, 28px)' }}>
             {NAV_ITEMS.map((item) => (
               <Link key={item.label} to={item.to} className="shrink-0">
                 <span

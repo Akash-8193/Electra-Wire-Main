@@ -325,12 +325,12 @@ header {
    ========================================= */
 
 /* Header Navigation Display Rules */
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 899px) {
     .desktop-header-wrapper { display: none !important; }
     .mobile-header-wrapper { display: flex !important; }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 900px) {
     .desktop-header-wrapper { display: block !important; }
     .mobile-header-wrapper { display: none !important; }
 }
