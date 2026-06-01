@@ -321,13 +321,16 @@ header {
 }
 
 /* =========================================
-   INCREMENTAL RESPONSIVENESS (PHASE 1)
+   RESPONSIVE OVERRIDES
    ========================================= */
 
-/* Header/Navbar Zoom Fix: 
-   Triggers hamburger menu before nav items overflow on zoomed screens.
-   Uses isolated custom classes to avoid destroying original Tailwind layout logic. */
-@media (max-width: 1300px) {
-    .nav-desktop-override { display: none !important; }
-    .nav-hamburger-override { display: inline-flex !important; }
+/* Header Navigation Display Rules */
+@media screen and (max-width: 1023px) {
+    .desktop-header-wrapper { display: none !important; }
+    .mobile-header-wrapper { display: flex !important; }
+}
+
+@media screen and (min-width: 1024px) {
+    .desktop-header-wrapper { display: block !important; }
+    .mobile-header-wrapper { display: none !important; }
 }
