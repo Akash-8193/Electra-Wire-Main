@@ -5,17 +5,16 @@ const NAV_ITEMS = [
   { label: 'Home', to: '/' },
   { label: 'About Us', to: '/about' },
   { label: 'Products', to: '/products' },
-  { label: 'Manufacturing', to: '/about#legacy-excellence' },
   { label: 'Blogs', to: '/blogs' },
   { label: 'Contact Us', to: '/contact' },
 ];
 
 const getDesktopLinkStyle = (textColor) => ({
-  '--typography-font-size': 'var(--typography-body-sm-font-size)',
+  '--typography-font-size': 'var(--typography-body-md-font-size)',
   '--typography-font-weight': '600',
-  '--typography-line-height': 'var(--typography-body-sm-line-height)',
-  '--typography-letter-spacing': 'var(--typography-body-sm-letter-spacing)',
-  '--typography-font-family': 'var(--typography-body-sm-font-family)',
+  '--typography-line-height': 'var(--typography-body-md-line-height)',
+  '--typography-letter-spacing': 'var(--typography-body-md-letter-spacing)',
+  '--typography-font-family': 'var(--typography-body-md-font-family)',
   color: textColor,
 });
 
@@ -61,11 +60,11 @@ const DesktopHeader = ({ bgColor, shadow, textColor }) => (
             <span
               className="min-w-0 overflow-hidden text-ellipsis [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)"
               style={{
-                '--typography-font-size': 'var(--typography-body-sm-em-font-size)',
+                '--typography-font-size': 'var(--typography-body-md-em-font-size)',
                 '--typography-font-weight': '600',
-                '--typography-line-height': 'var(--typography-body-sm-em-line-height)',
-                '--typography-letter-spacing': 'var(--typography-body-sm-em-letter-spacing)',
-                '--typography-font-family': 'var(--typography-body-sm-em-font-family)',
+                '--typography-line-height': 'var(--typography-body-md-em-line-height)',
+                '--typography-letter-spacing': 'var(--typography-body-md-em-letter-spacing)',
+                '--typography-font-family': 'var(--typography-body-md-em-font-family)',
                 color: '#fff',
               }}
             >

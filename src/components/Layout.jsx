@@ -12,11 +12,20 @@ const Layout = ({ children }) => {
     useGlobalAnimations(rootRef);
 
     useEffect(() => {
+        if (location.hash) {
+            setTimeout(() => {
+                const element = document.getElementById(location.hash.substring(1));
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+            return;
+        }
         window.scrollTo(0, 0);
         if (rootRef.current) {
             rootRef.current.scrollTo({ top: 0, left: 0, behavior: 'instant' });
         }
-    }, [location.pathname]);
+    }, [location.pathname, location.hash]);
 
     return (
         <div ref={rootRef} className="website-container" data-theme-scope="elegant-serif" style={{ containerName: 'root', containerType: 'inline-size' }}>

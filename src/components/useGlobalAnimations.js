@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
-const wrapTextInSpans = (el) => {
+const wrapWordsInSpans = (el) => {
     const textNodes = [];
     const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
     let node;
@@ -16,25 +16,26 @@ const wrapTextInSpans = (el) => {
         }
     }
     
-    const chars = [];
+    const wordsSpans = [];
     textNodes.forEach(textNode => {
         const text = textNode.nodeValue;
         const fragment = document.createDocumentFragment();
         
-        for (let i = 0; i < text.length; i++) {
-            const char = text[i];
-            if (char === ' ' || char === '\n' || char === '\t') {
-                fragment.appendChild(document.createTextNode(char));
+        const parts = text.split(/(\s+)/);
+        parts.forEach(part => {
+            if (part.trim() === '') {
+                fragment.appendChild(document.createTextNode(part));
             } else {
                 const span = document.createElement('span');
-                span.textContent = char;
+                span.textContent = part;
+                span.style.display = 'inline-block';
                 fragment.appendChild(span);
-                chars.push(span);
+                wordsSpans.push(span);
             }
-        }
+        });
         textNode.parentNode.replaceChild(fragment, textNode);
     });
-    return chars;
+    return wordsSpans;
 };
 
 const wrapNumbersInSpans = (el) => {
@@ -72,10 +73,6 @@ const wrapNumbersInSpans = (el) => {
     return numberSpans;
 };
 
-/**
- * useGlobalAnimations
- * Premium minimal animations inspired by modern e-commerce (TwoLeavesTea.com style).
- */
 export const useGlobalAnimations = (rootRef) => {
     const location = useLocation();
 
@@ -86,15 +83,10 @@ export const useGlobalAnimations = (rootRef) => {
             const q = gsap.utils.selector(rootRef);
             const scrollerEl = rootRef.current;
 
-            // 1. NAVBAR BEHAVIOR
-
-
-            // 2. HERO SECTION ENTRANCE
             const sections = q("section");
             const heroSection = sections.find(s => s.id === "हीरो सेक्शन" || s.parentElement?.id === "हीरो सेक्शन" || s.classList.contains('min-h-screen'));
 
             if (heroSection) {
-                // Smooth section entrance on load - no scale to prevent layout shift
                 gsap.fromTo(heroSection,
                     { opacity: 0 },
                     { 
@@ -103,6 +95,7 @@ export const useGlobalAnimations = (rootRef) => {
                         ease: "power2.out", 
                         immediateRender: false,
                         clearProps: "opacity",
+                        force3D: true,
                         onComplete: () => gsap.set(heroSection, { opacity: 1, visibility: "visible" })
                     }
                 );
@@ -114,345 +107,164 @@ export const useGlobalAnimations = (rootRef) => {
                 if (headline) {
                     gsap.fromTo(headline, 
                         { y: 20, opacity: 0 },
-                        { 
-                            y: 0, 
-                            opacity: 1, 
-                            duration: 0.8, 
-                            delay: 0.2, 
-                            ease: "power2.out", 
-                            immediateRender: false,
-                            clearProps: "opacity,transform",
-                            onComplete: () => gsap.set(headline, { opacity: 1, visibility: "visible" })
-                        }
+                        { y: 0, opacity: 1, duration: 0.8, delay: 0.2, ease: "power2.out", immediateRender: false, clearProps: "opacity,transform", force3D: true, onComplete: () => gsap.set(headline, { opacity: 1, visibility: "visible" }) }
                     );
                 }
 
                 if (subtext) {
                     gsap.fromTo(subtext, 
                         { y: 15, opacity: 0 },
-                        { 
-                            y: 0, 
-                            opacity: 1, 
-                            duration: 0.8, 
-                            delay: 0.4, 
-                            ease: "power2.out", 
-                            immediateRender: false,
-                            clearProps: "opacity,transform",
-                            onComplete: () => gsap.set(subtext, { opacity: 1, visibility: "visible" })
-                        }
+                        { y: 0, opacity: 1, duration: 0.8, delay: 0.4, ease: "power2.out", immediateRender: false, clearProps: "opacity,transform", force3D: true, onComplete: () => gsap.set(subtext, { opacity: 1, visibility: "visible" }) }
                     );
                 }
 
                 if (ctas.length > 0) {
                     gsap.fromTo(ctas, 
                         { y: 10, opacity: 0 },
-                        { 
-                            y: 0, 
-                            opacity: 1, 
-                            duration: 0.6, 
-                            delay: 0.6, 
-                            stagger: 0.1, 
-                            ease: "power2.out",
-                            immediateRender: false,
-                            clearProps: "opacity,transform",
-                            onComplete: () => gsap.set(ctas, { opacity: 1, visibility: "visible" })
-                        }
+                        { y: 0, opacity: 1, duration: 0.6, delay: 0.6, stagger: 0.1, ease: "power2.out", immediateRender: false, clearProps: "opacity,transform", force3D: true, onComplete: () => gsap.set(ctas, { opacity: 1, visibility: "visible" }) }
                     );
                 }
             }
 
-            // 3. GLOBAL SCROLL REVEAL: SECTIONS
-            // Sections fade in and move slightly upward
             sections.forEach(section => {
                 if (section === heroSection) return;
-
                 gsap.fromTo(section, 
                     { y: 40, opacity: 0 },
-                    {
-                        scrollTrigger: {
-                            trigger: section,
-                            scroller: scrollerEl,
-                            start: "top 90%",
-                            toggleActions: "play none none none",
-                            once: true
-                        },
-                        y: 0,
-                        opacity: 1,
-                        duration: 1,
-                        ease: "power2.out",
-                        immediateRender: false,
-                        clearProps: "opacity,transform",
-                        onComplete: () => gsap.set(section, { opacity: 1, visibility: "visible" })
-                    }
+                    { scrollTrigger: { trigger: section, scroller: scrollerEl, start: "top 90%", toggleActions: "play none none none", once: true, fastScrollEnd: true }, y: 0, opacity: 1, duration: 1, ease: "power2.out", immediateRender: false, clearProps: "opacity,transform", force3D: true, onComplete: () => gsap.set(section, { opacity: 1, visibility: "visible" }) }
                 );
             });
 
-            // 4. TEXT REVEAL (PREMIUM STAGGER)
-            // H3 headings upward fade
             q("h3").forEach(el => {
                 if (el.dataset.animated === 'true') return;
                 el.dataset.animated = 'true';
-
                 gsap.fromTo(el, 
                     { y: 20, opacity: 0 },
-                    {
-                        scrollTrigger: {
-                            trigger: el,
-                            scroller: scrollerEl,
-                            start: "top 90%",
-                            once: true
-                        },
-                        y: 0,
-                        opacity: 1,
-                        duration: 0.8,
-                        ease: "power2.out",
-                        immediateRender: false,
-                        clearProps: "opacity,transform",
-                        onComplete: () => gsap.set(el, { opacity: 1, visibility: "visible" })
-                    }
+                    { scrollTrigger: { trigger: el, scroller: scrollerEl, start: "top 90%", once: true, fastScrollEnd: true }, y: 0, opacity: 1, duration: 0.8, ease: "power2.out", immediateRender: false, clearProps: "opacity,transform", force3D: true, onComplete: () => gsap.set(el, { opacity: 1, visibility: "visible" }) }
                 );
             });
 
-            // 4b. H2 HEADINGS SLIDE-IN FROM RIGHT
             q("h2").forEach(el => {
                 if (el.dataset.animatedH2 === 'true') return;
                 el.dataset.animatedH2 = 'true';
-
                 gsap.fromTo(el, 
                     { x: 40, opacity: 0 },
-                    {
-                        scrollTrigger: {
-                            trigger: el,
-                            scroller: scrollerEl,
-                            start: "top 90%",
-                            once: true
-                        },
-                        x: 0,
-                        opacity: 1,
-                        duration: 1,
-                        ease: "power2.out",
-                        immediateRender: false,
-                        clearProps: "opacity,transform",
-                        onComplete: () => gsap.set(el, { opacity: 1, visibility: "visible" })
-                    }
+                    { scrollTrigger: { trigger: el, scroller: scrollerEl, start: "top 90%", once: true, fastScrollEnd: true }, x: 0, opacity: 1, duration: 1, ease: "power2.out", immediateRender: false, clearProps: "opacity,transform", force3D: true, onComplete: () => gsap.set(el, { opacity: 1, visibility: "visible" }) }
                 );
             });
 
-            // 5. CARD / PRODUCT GRID
-            // Staggered upward fade on scroll + hover transforms
             const grids = q(".grid");
             grids.forEach(grid => {
                 if (grid.closest('header') || grid.closest('footer')) return;
-
-                const cards = Array.from(grid.children).filter(el =>
-                    el.tagName === 'DIV' && el.children.length > 0
-                );
-
+                const cards = Array.from(grid.children).filter(el => el.tagName === 'DIV' && el.children.length > 0);
                 if (cards.length > 0 && cards.length < 30) {
                     gsap.fromTo(cards, 
                         { y: 30, opacity: 0 },
-                        {
-                            scrollTrigger: {
-                                trigger: grid,
-                                scroller: scrollerEl,
-                                start: "top 88%",
-                                once: true
-                            },
-                            y: 0,
-                            opacity: 1,
-                            stagger: 0.1,
-                            duration: 0.8,
-                            ease: "power2.out",
-                            immediateRender: false,
-                            clearProps: "opacity,transform",
-                            onComplete: () => gsap.set(cards, { opacity: 1, visibility: "visible" })
-                        }
+                        { scrollTrigger: { trigger: grid, scroller: scrollerEl, start: "top 88%", once: true, fastScrollEnd: true }, y: 0, opacity: 1, stagger: 0.1, duration: 0.8, ease: "power2.out", immediateRender: false, clearProps: "opacity,transform", force3D: true, onComplete: () => gsap.set(cards, { opacity: 1, visibility: "visible" }) }
                     );
                 }
             });
 
-            // Interactive Card Hover Effects
-            const hoverCards = q(".gsap-card, .grid > div").filter(el =>
-                !el.closest('header') && !el.closest('footer') && el.children.length > 0
-            );
-
+            const hoverCards = q(".gsap-card, .grid > div").filter(el => !el.closest('header') && !el.closest('footer') && el.children.length > 0);
             hoverCards.forEach(card => {
                 card.style.transition = 'transform 0.4s ease, box-shadow 0.4s ease';
-
-                const onEnter = () => {
-                    gsap.to(card, {
-                        scale: 1.04,
-                        y: -4,
-                        boxShadow: "0 12px 25px rgba(0,0,0,0.08)",
-                        duration: 0.4,
-                        ease: "power2.out"
-                    });
-                };
-                const onLeave = () => {
-                    gsap.to(card, {
-                        scale: 1,
-                        y: 0,
-                        boxShadow: "0 0 0 rgba(0,0,0,0)",
-                        duration: 0.4,
-                        ease: "power2.out"
-                    });
-                };
-
+                card.style.willChange = 'transform, box-shadow';
+                const onEnter = () => gsap.to(card, { scale: 1.04, y: -4, boxShadow: "0 12px 25px rgba(0,0,0,0.08)", duration: 0.4, ease: "power2.out", force3D: true });
+                const onLeave = () => gsap.to(card, { scale: 1, y: 0, boxShadow: "0 0 0 rgba(0,0,0,0)", duration: 0.4, ease: "power2.out", force3D: true });
                 card.addEventListener('mouseenter', onEnter);
                 card.addEventListener('mouseleave', onLeave);
-                self.add(() => {
-                    card.removeEventListener('mouseenter', onEnter);
-                    card.removeEventListener('mouseleave', onLeave);
-                });
+                self.add(() => { card.removeEventListener('mouseenter', onEnter); card.removeEventListener('mouseleave', onLeave); });
             });
 
-            // 6. IMAGE ANIMATIONS
-            // Subtle fade reveal on scroll (NO SCALE to prevent resizing jumps)
             q("img").forEach(img => {
-                if (img.dataset.animatedImg === 'true') return;
-                if (img.closest('header')) return;
+                if (img.dataset.animatedImg === 'true' || img.closest('header')) return;
                 img.dataset.animatedImg = 'true';
-
                 gsap.fromTo(img,
                     { opacity: 0 },
-                    {
-                        scrollTrigger: {
-                            trigger: img,
-                            scroller: scrollerEl,
-                            start: "top 95%",
-                            once: true
-                        },
-                        opacity: 1,
-                        duration: 1,
-                        ease: "power2.out",
-                        immediateRender: false,
-                        clearProps: "opacity",
-                        onComplete: () => gsap.set(img, { opacity: 1, visibility: "visible" })
-                    }
+                    { scrollTrigger: { trigger: img, scroller: scrollerEl, start: "top 95%", once: true, fastScrollEnd: true }, opacity: 1, duration: 1, ease: "power2.out", immediateRender: false, clearProps: "opacity", force3D: true, onComplete: () => gsap.set(img, { opacity: 1, visibility: "visible" }) }
                 );
             });
 
-            // 7. BUTTON INTERACTIONS
-            // CTA Button Hover Effects - Enhanced Interactivity
             q("a[data-slot='button'], button[data-slot='button']").forEach(btn => {
-                // Ensure initial visibility if not already set by entrance animations
                 gsap.set(btn, { opacity: 1, visibility: 'visible' });
-
-                const onEnter = () => {
-                    gsap.to(btn, { 
-                        scale: 1.03, 
-                        y: -2,
-                        boxShadow: "0 10px 20px -10px rgba(0,0,0,0.3)",
-                        duration: 0.3, 
-                        ease: "power2.out" 
-                    });
-                };
-                const onLeave = () => {
-                    gsap.to(btn, { 
-                        scale: 1, 
-                        y: 0,
-                        boxShadow: "none",
-                        duration: 0.3, 
-                        ease: "power2.out" 
-                    });
-                };
+                btn.style.willChange = 'transform, box-shadow';
+                const onEnter = () => gsap.to(btn, { scale: 1.03, y: -2, boxShadow: "0 10px 20px -10px rgba(0,0,0,0.3)", duration: 0.3, ease: "power2.out", force3D: true });
+                const onLeave = () => gsap.to(btn, { scale: 1, y: 0, boxShadow: "none", duration: 0.3, ease: "power2.out", force3D: true });
                 btn.addEventListener('mouseenter', onEnter);
                 btn.addEventListener('mouseleave', onLeave);
-                self.add(() => {
-                    btn.removeEventListener('mouseenter', onEnter);
-                    btn.removeEventListener('mouseleave', onLeave);
-                });
+                self.add(() => { btn.removeEventListener('mouseenter', onEnter); btn.removeEventListener('mouseleave', onLeave); });
             });
 
-            // 8. WHATSAPP BUTTON ANIMATION
             q(".whatsapp-float").forEach(btn => {
-                // Continuous slow floating animation
-                gsap.to(btn, {
-                    y: -20,
-                    duration: 2,
-                    ease: "power1.inOut",
-                    yoyo: true,
-                    repeat: -1
-                });
-
-                // Custom hover for the WhatsApp button
-                const onEnter = () => {
-                    gsap.to(btn, { scale: 1.1, boxShadow: "0px 15px 35px rgba(0,0,0,0.4)", duration: 0.3, ease: "power2.out", overwrite: "auto" });
-                };
-                const onLeave = () => {
-                    gsap.to(btn, { scale: 1, boxShadow: "0px 10px 25px rgba(0,0,0,0.3)", duration: 0.3, ease: "power2.out", overwrite: "auto" });
-                };
+                btn.style.willChange = 'transform, box-shadow';
+                gsap.to(btn, { y: -20, duration: 2, ease: "power1.inOut", yoyo: true, repeat: -1, force3D: true });
+                const onEnter = () => gsap.to(btn, { scale: 1.1, boxShadow: "0px 15px 35px rgba(0,0,0,0.4)", duration: 0.3, ease: "power2.out", overwrite: "auto", force3D: true });
+                const onLeave = () => gsap.to(btn, { scale: 1, boxShadow: "0px 10px 25px rgba(0,0,0,0.3)", duration: 0.3, ease: "power2.out", overwrite: "auto", force3D: true });
                 btn.addEventListener('mouseenter', onEnter);
                 btn.addEventListener('mouseleave', onLeave);
-                self.add(() => {
-                    btn.removeEventListener('mouseenter', onEnter);
-                    btn.removeEventListener('mouseleave', onLeave);
-                });
+                self.add(() => { btn.removeEventListener('mouseenter', onEnter); btn.removeEventListener('mouseleave', onLeave); });
             });
 
-            // 9. TYPEWRITER PARAGRAPHS
             const paragraphs = q("p");
             paragraphs.forEach(p => {
-                if (p.dataset.animatedTyping === 'true') return;
-                if (p.closest('header')) return; 
+                if (
+                    p.dataset.animatedTyping === 'true' || 
+                    p.closest('header') || 
+                    p.closest('.hero-section') ||
+                    p.closest('#customer-reviews') ||
+                    p.closest('#client-testimonials') ||
+                    p.closest('.gsap-card')
+                ) return; 
                 
                 p.dataset.originalHtml = p.innerHTML;
                 p.dataset.animatedTyping = 'true';
 
-                const chars = wrapTextInSpans(p);
+                const words = wrapWordsInSpans(p);
                 
-                if (chars.length > 0) {
-                    gsap.fromTo(chars, 
-                        { opacity: 0 },
-                        {
-                            scrollTrigger: {
-                                trigger: p,
-                                scroller: scrollerEl,
-                                start: "top 90%",
-                                once: true
-                            },
-                            opacity: 1,
-                            duration: 0.1,
-                            stagger: 0.015,
-                            ease: "power1.inOut",
-                            immediateRender: false,
-                            onComplete: () => gsap.set(chars, { opacity: 1, visibility: "visible", clearProps: "all" })
+                if (words.length > 0) {
+                    words.forEach((w, i) => {
+                        w.style.opacity = '0';
+                        w.style.transition = 'opacity 0.2s ease-out';
+                        w.style.transitionDelay = `${(i * 0.025).toFixed(3)}s`;
+                    });
+
+                    ScrollTrigger.create({
+                        trigger: p,
+                        scroller: scrollerEl,
+                        start: "top 90%",
+                        once: true,
+                        onEnter: () => {
+                            words.forEach(w => {
+                                w.style.opacity = '1';
+                            });
+                            
+                            setTimeout(() => {
+                                if (p.dataset.animatedTyping === 'true') {
+                                    words.forEach(w => {
+                                        w.style.transition = 'none';
+                                        w.style.transitionDelay = '0s';
+                                    });
+                                }
+                            }, (words.length * 0.025 + 0.3) * 1000);
                         }
-                    );
+                    });
                 }
             });
 
-            // 10. COUNT-UP STATS
             const statElements = q("h1, h2, h3");
             statElements.forEach(el => {
                 if (el.dataset.animatedCount === 'true') return;
-                
                 el.dataset.originalHtmlCount = el.innerHTML;
                 el.dataset.animatedCount = 'true';
-
                 const numSpans = wrapNumbersInSpans(el);
-                
                 numSpans.forEach(span => {
                     const targetNum = parseInt(span.textContent, 10);
                     if (isNaN(targetNum)) return;
-                    
                     const obj = { val: 0 };
                     gsap.to(obj, {
-                        scrollTrigger: {
-                            trigger: el,
-                            scroller: scrollerEl,
-                            start: "top 90%",
-                            once: true
-                        },
-                        val: targetNum,
-                        duration: 2.5,
-                        ease: "power2.out",
-                        onUpdate: () => {
-                            span.textContent = Math.floor(obj.val);
-                        },
-                        onComplete: () => {
-                            span.textContent = targetNum;
-                        }
+                        scrollTrigger: { trigger: el, scroller: scrollerEl, start: "top 90%", once: true, fastScrollEnd: true },
+                        val: targetNum, duration: 2.5, ease: "power2.out",
+                        onUpdate: () => { span.textContent = Math.floor(obj.val); },
+                        onComplete: () => { span.textContent = targetNum; }
                     });
                 });
             });

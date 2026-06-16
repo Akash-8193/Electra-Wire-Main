@@ -30,63 +30,66 @@ export const usePageInteractions = ({ rootRef, carouselTitle, faqTitle }) => {
 
   useEffect(() => {
     const root = rootRef.current;
-    if (!root || !carouselTitle) {
-      return undefined;
-    }
+    if (!root || !carouselTitle) return undefined;
 
     const section = findSectionByHeading(root, carouselTitle);
-    if (!section) {
-      return undefined;
-    }
+    if (!section) return undefined;
 
     const region = section.querySelector('[role="region"][aria-roledescription="carousel"]');
     const track = getCarouselTrack(section);
-    if (!region || !track) {
-      return undefined;
-    }
+    if (!region || !track) return undefined;
 
     const slides = getCarouselSlides(track);
     const prevButtons = Array.from(section.querySelectorAll('button[aria-label="Previous"]'));
     const nextButtons = Array.from(section.querySelectorAll('button[aria-label="Next"]'));
 
-    const applyTransform = () => {
+    // Ensure track has smooth scrolling
+    track.style.scrollBehavior = 'smooth';
+
+    const getStep = () => {
       const firstSlide = slides[0];
       const trackStyles = window.getComputedStyle(track);
       const gap = Number.parseFloat(trackStyles.columnGap || trackStyles.gap || '0') || 0;
-      const step = firstSlide ? firstSlide.getBoundingClientRect().width + gap : 0;
-      const maxIndex = Math.max(0, slides.length - 1);
-      const nextIndex = clamp(carouselIndex, 0, maxIndex);
+      return firstSlide ? firstSlide.getBoundingClientRect().width + gap : 0;
+    };
 
-      region.style.overflow = 'hidden';
-      region.style.position = 'relative';
-      track.style.transition = 'transform 320ms ease';
-      track.style.willChange = 'transform';
-      track.style.transform = `translate3d(${-nextIndex * step}px, 0, 0)`;
+    const updateButtons = () => {
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      const currentScroll = track.scrollLeft;
+      
+      const isStart = currentScroll <= 10;
+      const isEnd = currentScroll >= maxScroll - 10;
 
       prevButtons.forEach((button) => {
-        button.disabled = nextIndex === 0;
-        button.setAttribute('aria-disabled', String(nextIndex === 0));
+        button.disabled = isStart;
+        button.setAttribute('aria-disabled', String(isStart));
       });
 
       nextButtons.forEach((button) => {
-        button.disabled = nextIndex === maxIndex;
-        button.setAttribute('aria-disabled', String(nextIndex === maxIndex));
+        button.disabled = isEnd;
+        button.setAttribute('aria-disabled', String(isEnd));
       });
     };
 
-    const onPrev = () => setCarouselIndex((current) => clamp(current - 1, 0, slides.length - 1));
-    const onNext = () => setCarouselIndex((current) => {
-      const next = current + 1;
-      return next >= slides.length ? 0 : next; // Loop back to start
-    });
+    const onPrev = () => {
+      track.scrollBy({ left: -getStep(), behavior: 'smooth' });
+    };
 
-    // Auto-slide logic
-    const autoSlideInterval = setInterval(onNext, 5000); // Advance every 5 seconds
+    const onNext = () => {
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      if (track.scrollLeft >= maxScroll - 10) {
+         track.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+         track.scrollBy({ left: getStep(), behavior: 'smooth' });
+      }
+    };
+
+    const autoSlideInterval = setInterval(onNext, 5000);
 
     prevButtons.forEach((button) => {
       button.disabled = false;
       button.addEventListener('click', () => {
-        clearInterval(autoSlideInterval); // Stop auto-slide on interaction
+        clearInterval(autoSlideInterval);
         onPrev();
       });
     });
@@ -94,28 +97,21 @@ export const usePageInteractions = ({ rootRef, carouselTitle, faqTitle }) => {
     nextButtons.forEach((button) => {
       button.disabled = false;
       button.addEventListener('click', () => {
-        clearInterval(autoSlideInterval); // Stop auto-slide on interaction
+        clearInterval(autoSlideInterval);
         onNext();
       });
     });
 
-    const handleResize = () => applyTransform();
-    applyTransform();
-    window.addEventListener('resize', handleResize);
+    track.addEventListener('scroll', updateButtons, { passive: true });
+    updateButtons();
 
     return () => {
       clearInterval(autoSlideInterval);
-      prevButtons.forEach((button) => {
-        button.removeEventListener('click', onPrev);
-      });
-
-      nextButtons.forEach((button) => {
-        button.removeEventListener('click', onNext);
-      });
-
-      window.removeEventListener('resize', handleResize);
+      track.removeEventListener('scroll', updateButtons);
+      prevButtons.forEach((button) => button.removeEventListener('click', onPrev));
+      nextButtons.forEach((button) => button.removeEventListener('click', onNext));
     };
-  }, [carouselIndex, carouselTitle, rootRef]);
+  }, [carouselTitle, rootRef]);
 
   useEffect(() => {
     const root = rootRef.current;

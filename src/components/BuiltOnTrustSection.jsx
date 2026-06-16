@@ -16,15 +16,16 @@ const BuiltOnTrustSection = () => {
                 Built On Trust
               </h2>
 
-              <div className="w-full max-w-6xl mx-auto overflow-x-auto hide-scrollbar snap-x snap-mandatory rounded-[20px] pointer-events-auto">
-                <div className="min-w-[600px] w-full flex justify-center items-center h-[80px] @tablet:h-[120px] @desktop:h-[150px] snap-start">
-                  <img
-                    alt="Built On Trust section showing 20-Year Legacy, German Tech Fire Resistance, BIS Certified, and Bulk-Ready Supply"
-                    className="w-full h-full object-contain drop-shadow-md"
-                    style={{ objectPosition: 'center' }}
-                    draggable="false"
-                    src="/images/built-on-trust.png"
-                  />
+              <div className="w-full max-w-6xl mx-auto overflow-x-auto hide-scrollbar snap-x snap-mandatory rounded-[20px] pointer-events-auto mt-4 @tablet:mt-8">
+                <div className="min-w-[800px] w-full flex justify-center items-center snap-start px-4">
+                  <div className="w-full overflow-hidden rounded-2xl">
+                    <img
+                      alt="Built On Trust section showing 20-Year Legacy, German Tech Fire Resistance, BIS Certified, and Bulk-Ready Supply"
+                      className="w-full h-auto drop-shadow-md -mt-[20%] -mb-[20%]"
+                      draggable="false"
+                      src="/images/built-on-trust.png"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
