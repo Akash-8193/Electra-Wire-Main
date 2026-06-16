@@ -1,9 +1,10 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { usePageInteractions } from './usePageInteractions';
-import { products } from '../data/products';
+import { useDataContext } from '../context/DataContext';
 
 const Products = () => {
+    const { products } = useDataContext();
     const rootRef = useRef(null);
     usePageInteractions({ rootRef, carouselTitle: 'Our Customers Are Our Success', faqTitle: 'Your Questions, Answered' });
     return (

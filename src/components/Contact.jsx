@@ -3,9 +3,63 @@ import { Link } from 'react-router-dom';
 
 const Contact = () => {
     const [openFaq, setOpenFaq] = useState(null);
-    const [productInterest, setProductInterest] = useState('');
-    const [applicationType, setApplicationType] = useState('');
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        product_interest: '',
+        application_type: '',
+        message: ''
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState(null);
+
     const toggleFaq = (index) => { setOpenFaq((current) => (current === index ? null : index)); };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleRadioChange = (e) => {
+        setFormData(prev => ({ ...prev, application_type: e.target.value }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setSubmitStatus(null);
+
+        try {
+            const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/rest/v1/Contact`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'apikey': import.meta.env.VITE_SUPABASE_ANON_KEY,
+                    'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+                    'Prefer': 'return=minimal'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                console.error("Supabase Error:", errorData);
+                throw new Error(errorData.message || 'Failed to submit form');
+            }
+
+            setSubmitStatus({ type: 'success', text: 'Thank you! Your inquiry has been submitted successfully.' });
+            setFormData({
+                name: '', email: '', phone: '', product_interest: '', application_type: '', message: ''
+            });
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            setSubmitStatus({ type: 'error', text: 'Sorry, there was an error submitting your form. Please try again later.' });
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     return (
         <main>
             <div className="w-full" id="hero-section">
@@ -84,22 +138,27 @@ const Contact = () => {
                                         <h2 className="[font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{'--typography-font-size': 'var(--typography-display-sm-font-size)', '--typography-font-weight': 'var(--typography-display-sm-font-weight)', '--typography-line-height': 'var(--typography-display-sm-line-height)', '--typography-letter-spacing': 'var(--typography-display-sm-letter-spacing)', '--typography-font-family': 'var(--typography-display-sm-font-family)', color: '#060603'}}>Request a Quote or Product Information</h2>
                                         <p className="whitespace-pre-line [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{'--typography-font-size': 'var(--typography-body-md-font-size)', '--typography-font-weight': 'var(--typography-body-md-font-weight)', '--typography-line-height': 'var(--typography-body-md-line-height)', '--typography-letter-spacing': 'var(--typography-body-md-letter-spacing)', '--typography-font-family': 'var(--typography-body-md-font-family)', color: '#1b1b16'}}>Fill out the form below to get expert assistance on electrical wires, pricing, and customized solutions tailored to your project.</p>
                                     </div>
-                                    <form className="space-y-4 w-full">
+                                    <form onSubmit={handleSubmit} className="space-y-4 w-full">
+                                        {submitStatus && (
+                                            <div className={`p-4 rounded-xl text-sm font-medium ${submitStatus.type === 'success' ? 'bg-green-50 text-green-800 border border-green-200' : 'bg-red-50 text-red-800 border border-red-200'}`}>
+                                                {submitStatus.text}
+                                            </div>
+                                        )}
                                         <div className="flex flex-col gap-1">
                                             <label className="[font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{'--typography-font-size': 'var(--typography-label-sm-font-size)', '--typography-font-weight': 'var(--typography-label-sm-font-weight)', '--typography-line-height': 'var(--typography-label-sm-line-height)', '--typography-letter-spacing': 'var(--typography-label-sm-letter-spacing)', '--typography-font-family': 'var(--typography-label-sm-font-family)', color: '#1b1b16'}} htmlFor="_R_2d9l4lviv9fivb_-name">Full Name</label>
-                                            <input data-slot="input" type="text" id="_R_2d9l4lviv9fivb_-name" maxLength="200" required="" style={{'--bg-color': 'transparent', '--hover-bg-color': '#efe8d6', '--border-color': '#4b4b46', '--hover-border-color': '#4b4b46', color: '#1b1b16', borderColor: '#4b4b46'}} className="flex w-full border border-(--border-color) bg-(--bg-color) [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing) transition-all placeholder:opacity-50 hover:border-(--hover-border-color) hover:bg-(--hover-bg-color) focus-visible:bg-(--hover-bg-color) focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-error-border aria-invalid:ring-error-interactive-bg px-5 py-3 rounded-3xl" name="name"/>
+                                            <input data-slot="input" type="text" id="_R_2d9l4lviv9fivb_-name" maxLength="200" required="" value={formData.name} onChange={handleChange} style={{'--bg-color': 'transparent', '--hover-bg-color': '#efe8d6', '--border-color': '#4b4b46', '--hover-border-color': '#4b4b46', color: '#1b1b16', borderColor: '#4b4b46'}} className="flex w-full border border-(--border-color) bg-(--bg-color) [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing) transition-all placeholder:opacity-50 hover:border-(--hover-border-color) hover:bg-(--hover-bg-color) focus-visible:bg-(--hover-bg-color) focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-error-border aria-invalid:ring-error-interactive-bg px-5 py-3 rounded-3xl" name="name"/>
                                         </div>
                                         <div className="flex flex-col gap-1">
                                             <label className="[font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{'--typography-font-size': 'var(--typography-label-sm-font-size)', '--typography-font-weight': 'var(--typography-label-sm-font-weight)', '--typography-line-height': 'var(--typography-label-sm-line-height)', '--typography-letter-spacing': 'var(--typography-label-sm-letter-spacing)', '--typography-font-family': 'var(--typography-label-sm-font-family)', color: '#1b1b16'}} htmlFor="_R_2d9l4lviv9fivb_-email">Email Address</label>
-                                            <input data-slot="input" type="email" id="_R_2d9l4lviv9fivb_-email" maxLength="320" required="" style={{'--bg-color': 'transparent', '--hover-bg-color': '#efe8d6', '--border-color': '#4b4b46', '--hover-border-color': '#4b4b46', color: '#1b1b16', borderColor: '#4b4b46'}} className="flex w-full border border-(--border-color) bg-(--bg-color) [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing) transition-all placeholder:opacity-50 hover:border-(--hover-border-color) hover:bg-(--hover-bg-color) focus-visible:bg-(--hover-bg-color) focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-error-border aria-invalid:ring-error-interactive-bg px-5 py-3 rounded-3xl" name="email"/>
+                                            <input data-slot="input" type="email" id="_R_2d9l4lviv9fivb_-email" maxLength="320" required="" value={formData.email} onChange={handleChange} style={{'--bg-color': 'transparent', '--hover-bg-color': '#efe8d6', '--border-color': '#4b4b46', '--hover-border-color': '#4b4b46', color: '#1b1b16', borderColor: '#4b4b46'}} className="flex w-full border border-(--border-color) bg-(--bg-color) [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing) transition-all placeholder:opacity-50 hover:border-(--hover-border-color) hover:bg-(--hover-bg-color) focus-visible:bg-(--hover-bg-color) focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-error-border aria-invalid:ring-error-interactive-bg px-5 py-3 rounded-3xl" name="email"/>
                                         </div>
                                         <div className="flex flex-col gap-1">
                                             <label className="[font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{'--typography-font-size': 'var(--typography-label-sm-font-size)', '--typography-font-weight': 'var(--typography-label-sm-font-weight)', '--typography-line-height': 'var(--typography-label-sm-line-height)', '--typography-letter-spacing': 'var(--typography-label-sm-letter-spacing)', '--typography-font-family': 'var(--typography-label-sm-font-family)', color: '#1b1b16'}} htmlFor="_R_2d9l4lviv9fivb_-phone">Contact Number</label>
-                                            <input data-slot="input" type="text" id="_R_2d9l4lviv9fivb_-phone" maxLength="20" style={{'--bg-color': 'transparent', '--hover-bg-color': '#efe8d6', '--border-color': '#4b4b46', '--hover-border-color': '#4b4b46', color: '#1b1b16', borderColor: '#4b4b46'}} className="flex w-full border border-(--border-color) bg-(--bg-color) [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing) transition-all placeholder:opacity-50 hover:border-(--hover-border-color) hover:bg-(--hover-bg-color) focus-visible:bg-(--hover-bg-color) focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-error-border aria-invalid:ring-error-interactive-bg px-5 py-3 rounded-3xl" name="phone"/>
+                                            <input data-slot="input" type="text" id="_R_2d9l4lviv9fivb_-phone" maxLength="20" value={formData.phone} onChange={handleChange} style={{'--bg-color': 'transparent', '--hover-bg-color': '#efe8d6', '--border-color': '#4b4b46', '--hover-border-color': '#4b4b46', color: '#1b1b16', borderColor: '#4b4b46'}} className="flex w-full border border-(--border-color) bg-(--bg-color) [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing) transition-all placeholder:opacity-50 hover:border-(--hover-border-color) hover:bg-(--hover-bg-color) focus-visible:bg-(--hover-bg-color) focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-error-border aria-invalid:ring-error-interactive-bg px-5 py-3 rounded-3xl" name="phone"/>
                                         </div>
                                         <div className="flex flex-col gap-1">
                                             <label className="[font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{'--typography-font-size': 'var(--typography-label-sm-font-size)', '--typography-font-weight': 'var(--typography-label-sm-font-weight)', '--typography-line-height': 'var(--typography-label-sm-line-height)', '--typography-letter-spacing': 'var(--typography-label-sm-letter-spacing)', '--typography-font-family': 'var(--typography-label-sm-font-family)', color: '#1b1b16'}} htmlFor="_R_2d9l4lviv9fivb_-product-interest">Select Product Type</label>
-                                            <select id="_R_2d9l4lviv9fivb_-product-interest" name="product-interest" value={productInterest} onChange={(event) => setProductInterest(event.target.value)} style={{'--bg-color': 'transparent', '--hover-bg-color': '#efe8d6', '--border-color': '#4b4b46', '--hover-border-color': '#4b4b46', color: '#1b1b16', borderColor: '#4b4b46'}} className="flex w-full items-center justify-between gap-2 border border-(--border-color) bg-(--bg-color) [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing) transition-all hover:border-(--hover-border-color) hover:bg-(--hover-bg-color) focus-visible:bg-(--hover-bg-color) focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-error-border aria-invalid:ring-error-interactive-bg px-5 py-3 rounded-3xl cursor-pointer">
+                                            <select id="_R_2d9l4lviv9fivb_-product-interest" name="product_interest" value={formData.product_interest} onChange={handleChange} style={{'--bg-color': 'transparent', '--hover-bg-color': '#efe8d6', '--border-color': '#4b4b46', '--hover-border-color': '#4b4b46', color: '#1b1b16', borderColor: '#4b4b46'}} className="flex w-full items-center justify-between gap-2 border border-(--border-color) bg-(--bg-color) [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing) transition-all hover:border-(--hover-border-color) hover:bg-(--hover-bg-color) focus-visible:bg-(--hover-bg-color) focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-error-border aria-invalid:ring-error-interactive-bg px-5 py-3 rounded-3xl cursor-pointer">
                                                 <option value="">Product Interest</option>
                                                 <option value="House Wires">House Wires</option>
                                                 <option value="Industrial Cables">Industrial Cables</option>
@@ -111,25 +170,27 @@ const Contact = () => {
                                             <label className="[font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{'--typography-font-size': 'var(--typography-label-sm-font-size)', '--typography-font-weight': 'var(--typography-label-sm-font-weight)', '--typography-line-height': 'var(--typography-label-sm-line-height)', '--typography-letter-spacing': 'var(--typography-label-sm-letter-spacing)', '--typography-font-family': 'var(--typography-label-sm-font-family)', color: '#1b1b16'}} htmlFor="_R_2d9l4lviv9fivb_-application-type">Application Type</label>
                                             <fieldset className="flex w-full flex-col gap-3 [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" id="_R_2d9l4lviv9fivb_-application-type">
                                                 <label style={{color: '#1b1b16'}} className="flex cursor-pointer items-center gap-3 w-full bg-white/40 hover:bg-white/60 transition-colors p-3 rounded-xl border border-black">
-                                                    <input type="radio" className="w-5 h-5 cursor-pointer accent-[#E8A317]" name="application-type" value="Residential" checked={applicationType === 'Residential'} onChange={(event) => setApplicationType(event.target.value)}/>
+                                                    <input type="radio" className="w-5 h-5 cursor-pointer accent-[#E8A317]" name="application_type" value="Residential" checked={formData.application_type === 'Residential'} onChange={handleRadioChange}/>
                                                     <span className="w-full">Residential</span>
                                                 </label>
                                                 <label style={{color: '#1b1b16'}} className="flex cursor-pointer items-center gap-3 w-full bg-white/40 hover:bg-white/60 transition-colors p-3 rounded-xl border border-black">
-                                                    <input type="radio" className="w-5 h-5 cursor-pointer accent-[#E8A317]" name="application-type" value="Commercial" checked={applicationType === 'Commercial'} onChange={(event) => setApplicationType(event.target.value)}/>
+                                                    <input type="radio" className="w-5 h-5 cursor-pointer accent-[#E8A317]" name="application_type" value="Commercial" checked={formData.application_type === 'Commercial'} onChange={handleRadioChange}/>
                                                     <span className="w-full">Commercial</span>
                                                 </label>
                                                 <label style={{color: '#1b1b16'}} className="flex cursor-pointer items-center gap-3 w-full bg-white/40 hover:bg-white/60 transition-colors p-3 rounded-xl border border-black">
-                                                    <input type="radio" className="w-5 h-5 cursor-pointer accent-[#E8A317]" name="application-type" value="Industrial" checked={applicationType === 'Industrial'} onChange={(event) => setApplicationType(event.target.value)}/>
+                                                    <input type="radio" className="w-5 h-5 cursor-pointer accent-[#E8A317]" name="application_type" value="Industrial" checked={formData.application_type === 'Industrial'} onChange={handleRadioChange}/>
                                                     <span className="w-full">Industrial</span>
                                                 </label>
                                             </fieldset>
                                         </div>
                                         <div className="flex flex-col gap-1">
                                             <label className="[font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{'--typography-font-size': 'var(--typography-label-sm-font-size)', '--typography-font-weight': 'var(--typography-label-sm-font-weight)', '--typography-line-height': 'var(--typography-label-sm-line-height)', '--typography-letter-spacing': 'var(--typography-label-sm-letter-spacing)', '--typography-font-family': 'var(--typography-label-sm-font-family)', color: '#1b1b16'}} htmlFor="_R_2d9l4lviv9fivb_-message">Project Details / Requirements</label>
-                                            <textarea data-slot="textarea" id="_R_2d9l4lviv9fivb_-message" type="textarea" maxLength="5000" name="message" style={{'--bg-color': 'transparent', '--hover-bg-color': '#efe8d6', '--border-color': '#4b4b46', '--hover-border-color': '#4b4b46', color: '#1b1b16', borderColor: '#4b4b46'}} className="flex min-h-40 w-full resize-y border border-(--border-color) bg-(--bg-color) [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing) transition-all placeholder:opacity-50 hover:border-(--hover-border-color) hover:bg-(--hover-bg-color) focus-visible:bg-(--hover-bg-color) focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-error-border aria-invalid:ring-error-interactive-bg px-5 py-3 rounded-3xl"></textarea>
+                                            <textarea data-slot="textarea" id="_R_2d9l4lviv9fivb_-message" type="textarea" maxLength="5000" name="message" value={formData.message} onChange={handleChange} style={{'--bg-color': 'transparent', '--hover-bg-color': '#efe8d6', '--border-color': '#4b4b46', '--hover-border-color': '#4b4b46', color: '#1b1b16', borderColor: '#4b4b46'}} className="flex min-h-40 w-full resize-y border border-(--border-color) bg-(--bg-color) [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing) transition-all placeholder:opacity-50 hover:border-(--hover-border-color) hover:bg-(--hover-bg-color) focus-visible:bg-(--hover-bg-color) focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-error-border aria-invalid:ring-error-interactive-bg px-5 py-3 rounded-3xl"></textarea>
                                         </div>
-                                        <button data-slot="button" type="submit" label="Submit Inquiry" style={{ '--bg-color': '#c62828', '--hover-bg-color': '#a00000', color: '#fff' }} className="btn-text-white inline-flex shrink-0 cursor-pointer items-center justify-center bg-(--bg-color) whitespace-nowrap transition-all outline-none hover:bg-(--hover-bg-color) focus-visible:border-primary-border focus-visible:ring-[3px] focus-visible:ring-primary-interactive-bg disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-error-border aria-invalid:ring-error-interactive-bg border border-black hover:border-black gap-2 px-5 py-2.5 has-[>svg:first-child]:pr-4 has-[>svg:last-child]:pl-4 has-[>svg:only-child]:px-2.5 rounded-3xl w-full @tablet:w-auto">
-                                            <span className="min-w-0 overflow-hidden text-ellipsis [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-body-sm-em-font-size)', '--typography-font-weight': 'var(--typography-body-sm-em-font-weight)', '--typography-line-height': 'var(--typography-body-sm-em-line-height)', '--typography-letter-spacing': 'var(--typography-body-sm-em-letter-spacing)', '--typography-font-family': 'var(--typography-body-sm-em-font-family)', color: '#fff' }}>Submit Inquiry</span>
+                                        <button data-slot="button" disabled={isSubmitting} type="submit" label="Submit Inquiry" style={{ '--bg-color': '#c62828', '--hover-bg-color': '#a00000', color: '#fff' }} className="btn-text-white inline-flex shrink-0 cursor-pointer items-center justify-center bg-(--bg-color) whitespace-nowrap transition-all outline-none hover:bg-(--hover-bg-color) focus-visible:border-primary-border focus-visible:ring-[3px] focus-visible:ring-primary-interactive-bg disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-error-border aria-invalid:ring-error-interactive-bg border border-black hover:border-black gap-2 px-5 py-2.5 has-[>svg:first-child]:pr-4 has-[>svg:last-child]:pl-4 has-[>svg:only-child]:px-2.5 rounded-3xl w-full @tablet:w-auto">
+                                            <span className="min-w-0 overflow-hidden text-ellipsis [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-body-sm-em-font-size)', '--typography-font-weight': 'var(--typography-body-sm-em-font-weight)', '--typography-line-height': 'var(--typography-body-sm-em-line-height)', '--typography-letter-spacing': 'var(--typography-body-sm-em-letter-spacing)', '--typography-font-family': 'var(--typography-body-sm-em-font-family)', color: '#fff' }}>
+                                                {isSubmitting ? 'Submitting...' : 'Submit Inquiry'}
+                                            </span>
                                         </button>
                                     </form>
                                 </div>

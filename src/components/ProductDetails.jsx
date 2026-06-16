@@ -1,9 +1,10 @@
 import React, { useRef, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { usePageInteractions } from './usePageInteractions';
-import { products } from '../data/products';
+import { useDataContext } from '../context/DataContext';
 
 const ProductDetails = () => {
+    const { products } = useDataContext();
     const { slug } = useParams();
     const rootRef = useRef(null);
     usePageInteractions({ rootRef });
