@@ -30,8 +30,22 @@ const Contact = () => {
         e.preventDefault();
         setIsSubmitting(true);
         setSubmitStatus(null);
-
         try {
+            // Flatten extra fields into message to prevent Supabase schema errors
+            const supabaseData = {
+                name: formData.name,
+                email: formData.email,
+                phone: formData.phone,
+                message: formData.message
+            };
+            
+            if (formData.product_interest || formData.application_type) {
+                let prefix = "";
+                if (formData.product_interest) prefix += `Product Interest: ${formData.product_interest}\n`;
+                if (formData.application_type) prefix += `Application Type: ${formData.application_type}\n`;
+                supabaseData.message = prefix + "\n---\n" + formData.message;
+            }
+
             const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/rest/v1/Contact`, {
                 method: 'POST',
                 headers: {
@@ -40,7 +54,7 @@ const Contact = () => {
                     'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
                     'Prefer': 'return=minimal'
                 },
-                body: JSON.stringify(formData)
+                body: JSON.stringify(supabaseData)
             });
 
             if (!response.ok) {
