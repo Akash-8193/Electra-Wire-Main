@@ -12,79 +12,92 @@ const Home = () => {
   usePageInteractions({ rootRef, carouselTitle: 'Trusted by Professionals Across Industries', faqTitle: 'Your Questions, Answered' });
   return (
     <main ref={rootRef}><div className="w-full" id="hero-section"><section className="w-full grid min-h-screen supports-[min-height:100cqh]:min-h-[100cqh] relative" style={{ marginTop: 'calc(-1 * 120px)' }}><div className="relative min-h-screen" style={{ paddingTop: '120px', minHeight: 'calc(100vh + 120px)' }}><div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true"><video style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover' }} className="gsap-hero-bg absolute inset-0 h-full w-full transition-opacity duration-500 " src="/videos/hero-video.mp4" autoPlay muted loop playsInline poster="/_next/4fb17cc5-27e7-42fb-8495-73c0b515a403-T50Yqje9KgwI9q2yVPfaurMm2S5wjGd3e6.png"></video></div><div className="absolute inset-0 z-10"><div className="absolute inset-0" style={{ borderRadius: 'inherit', background: 'linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.05) 100%)' }}></div></div><div className="mx-auto max-w-[1536px] px-6 relative flex h-full flex-1 items-end py-16 @tablet:py-24" style={{ zIndex: '20' }}><div className="flex w-full flex-col gap-8 @desktop:flex-row @desktop:items-end @desktop:justify-between"><div className="flex flex-col gap-8 @desktop:gap-4"><div className="flex max-w-3xl flex-col gap-6"><div className="flex items-center gap-3 gsap-hero-line"><span className="homepage-hero-span px-4 py-1.5 rounded-full border border-[#E8A317] bg-[#E8A317]/10 [font-family:var(--typography-font-family)] text-[12px] font-bold tracking-[0.2em] uppercase" style={{ color: '#E8A317' }}>Powering Safe Connections Across India</span></div><h1 className="homepage-hero-h1 gsap-hero-line [font-family:var(--typography-font-family)] leading-[1.1] font-bold tracking-tight" style={{ '--typography-font-size': 'var(--typography-display-lg-font-size)', color: '#ffffff', textShadow: '0 4px 20px rgba(0,0,0,0.6)' }}>Premium <span style={{ color: '#E8A317', background: 'linear-gradient(to bottom, #E8A317, #da990f)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Fire-Resistant</span><br />Electrical Wires for Safe & Reliable Power</h1><p className="homepage-hero-p gsap-hero-line whitespace-pre-line [font-family:var(--typography-font-family)] leading-[1.6] font-medium bg-black/60 backdrop-blur-md p-5 rounded-2xl border border-white/20 shadow-lg inline-block" style={{ '--typography-font-size': 'var(--typography-body-lg-font-size)', color: '#e5e5e5', maxWidth: '650px' }}>High-quality FR PVC wires engineered for maximum safety, durability, and performance. The trusted choice for residential, commercial, and industrial power solutions.</p></div><div className="@desktop:hidden"><div className="grid grid-cols-1 gap-4 @tablet:flex @tablet:flex-row items-start @tablet:justify-start"><Link data-slot="button" label="View Our Products" style={{ '--bg-color': '#c62828', '--hover-bg-color': '#a00000', color: '#fff' }} className="btn-text-white gsap-cta inline-flex shrink-0 cursor-pointer items-center justify-center bg-(--bg-color) whitespace-nowrap transition-all outline-none hover:bg-(--hover-bg-color) focus-visible:border-primary-border focus-visible:ring-[3px] focus-visible:ring-primary-interactive-bg disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-error-border aria-invalid:ring-error-interactive-bg [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])] :size-4 border border-(--bg-color) hover:border-(--hover-bg-color) gap-2 px-5 py-2.5 has-[>svg:first-child]:pr-4 has-[>svg:last-child]:pl-4 has-[>svg:only-child]:px-2.5 rounded-3xl" to="/products"><span className="min-w-0 overflow-hidden text-ellipsis [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-body-sm-em-font-size)', '--typography-font-weight': 'var(--typography-body-sm-em-font-weight)', '--typography-line-height': 'var(--typography-body-sm-em-line-height)', '--typography-letter-spacing': 'var(--typography-body-sm-em-letter-spacing)', '--typography-font-family': 'var(--typography-body-sm-em-font-family)', color: '#fff' }}>View Our Products</span></Link></div></div></div><div className="hidden @desktop:block"><div className="grid grid-cols-1 gap-4 @tablet:flex @tablet:flex-row items-start @tablet:justify-start"><Link data-slot="button" label="View Our Products" style={{ '--bg-color': '#c62828', '--hover-bg-color': '#a00000', color: '#fff' }} className="btn-text-white gsap-cta inline-flex shrink-0 cursor-pointer items-center justify-center bg-(--bg-color) whitespace-nowrap transition-all outline-none hover:bg-(--hover-bg-color) focus-visible:border-primary-border focus-visible:ring-[3px] focus-visible:ring-primary-interactive-bg disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-error-border aria-invalid:ring-error-interactive-bg [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])] :size-4 border border-(--bg-color) hover:border-(--hover-bg-color) gap-2 px-5 py-2.5 has-[>svg:first-child]:pr-4 has-[>svg:last-child]:pl-4 has-[>svg:only-child]:px-2.5 rounded-3xl" to="/products"><span className="min-w-0 overflow-hidden text-ellipsis [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-body-sm-em-font-size)', '--typography-font-weight': 'var(--typography-body-sm-em-font-weight)', '--typography-line-height': 'var(--typography-body-sm-em-line-height)', '--typography-letter-spacing': 'var(--typography-body-sm-em-letter-spacing)', '--typography-font-family': 'var(--typography-body-sm-em-font-family)', color: '#fff' }}>View Our Products</span></Link></div></div></div></div></div></section></div>
-      <div className="w-full bg-white" id="about-us">
-        <section className="w-full py-20 @tablet:py-32 relative">
-          <div className="mx-auto max-w-[1536px] px-6">
-            <div className="flex flex-col @desktop:flex-row gap-16 @desktop:gap-24 items-center">
+      <div className="w-full" id="about-us">
+        <section className="w-full" style={{ contain: 'layout style paint' }}>
+          <div className="relative">
+            <div className="absolute inset-0" style={{ borderRadius: 'inherit', background: '#FFF8E4' }}></div>
+            <div className="relative mx-auto max-w-[1536px] px-6 py-16 @tablet:py-24" style={{ zIndex: '10' }}>
               
-              {/* Left Side: Images */}
-              <div className="w-full @desktop:w-1/2 relative">
-                <div className="grid grid-cols-2 gap-6 relative">
-                  <div className="h-[350px] @tablet:h-[500px] rounded-[2rem] overflow-hidden shadow-lg mt-0 @tablet:-mt-12 transition-transform hover:-translate-y-2 duration-500">
-                      <img src={houseWiresImage} className="w-full h-full object-cover" alt="Electra Wires Factory" />
-                  </div>
-                  <div className="h-[350px] @tablet:h-[500px] rounded-[2rem] overflow-hidden shadow-lg mt-12 @tablet:mt-16 transition-transform hover:-translate-y-2 duration-500">
-                      <img src={industrialCableImage} className="w-full h-full object-cover" alt="Quality Electrical Wires" />
-                  </div>
-                  
-                  {/* Circular Badge */}
-                  <div className="absolute top-[20%] @tablet:top-[15%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 @tablet:w-44 @tablet:h-44 rounded-full flex flex-col justify-center items-center text-white shadow-2xl border-8 border-white z-10" style={{ backgroundColor: '#E8A317' }}>
-                      <span className="text-base @tablet:text-xl font-medium tracking-wide">Since</span>
-                      <span className="text-3xl @tablet:text-5xl font-bold mt-1">2004</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Side: Content */}
-              <div className="w-full @desktop:w-1/2 flex flex-col gap-8">
-                <div className="flex items-center gap-3">
-                  <span className="text-sm font-bold tracking-[0.2em] uppercase text-gray-500">ABOUT ELECTRA WIRES</span>
-                  <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#E8A317' }}></div>
-                </div>
+              <div className="flex w-full flex-col @desktop:flex-row gap-16 @desktop:gap-24 items-center">
                 
-                <h2 className="text-4xl @tablet:text-[3.5rem] font-bold text-gray-900 leading-[1.1] [font-family:var(--typography-font-family)]">
-                  Safety Begins with <br className="hidden @tablet:block" /> Reliable Power
-                </h2>
-                
-                <p className="text-gray-600 text-lg leading-relaxed [font-family:var(--typography-font-family)]">
-                  Electra Wires is a trusted manufacturer of fire-resistant electrical wires based in New Delhi. With over two decades of experience, we provide reliable, durable, and safe wiring solutions for residential, commercial, and industrial needs.
-                </p>
-
-                {/* Cards */}
-                <div className="grid grid-cols-1 @tablet:grid-cols-2 gap-6 mt-2">
-                    <div className="bg-white p-8 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300">
-                      <div className="w-14 h-14 mb-6 text-white rounded-2xl flex items-center justify-center bg-red-50" style={{ color: '#c62828' }}>
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-7 h-7">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                          </svg>
-                      </div>
-                      <h4 className="text-xl font-bold text-gray-900 mb-3 [font-family:var(--typography-font-family)]">FR-LSH Fire Safety</h4>
-                      <p className="text-gray-500 text-base leading-relaxed [font-family:var(--typography-font-family)]">Superior protection against fire hazards and smoke for your complete peace of mind.</p>
+                {/* Left Column: Two images and badge */}
+                <div className="w-full @desktop:w-1/2 relative flex justify-center @desktop:justify-start">
+                  <div className="relative w-full max-w-[600px] flex gap-4 @tablet:gap-6 items-center">
+                    {/* Image 1 */}
+                    <div className="w-1/2 rounded-[2rem] overflow-hidden shadow-2xl mt-12 aspect-[4/5]">
+                      <img src="/images/premium_wire_3d_left.png" alt="Electra Wires Manufacturing" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                    </div>
+                    {/* Image 2 */}
+                    <div className="w-1/2 rounded-[2rem] overflow-hidden shadow-2xl mb-12 aspect-[4/5]">
+                      <img src="/images/premium_wire_3d_right.png" alt="Premium Copper Wires" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
                     </div>
                     
-                    <div className="bg-white p-8 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300">
-                      <div className="w-14 h-14 mb-6 text-white rounded-2xl flex items-center justify-center bg-red-50" style={{ color: '#E8A317' }}>
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-7 h-7">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                          </svg>
-                      </div>
-                      <h4 className="text-xl font-bold text-gray-900 mb-3 [font-family:var(--typography-font-family)]">99.95% Pure Copper</h4>
-                      <p className="text-gray-500 text-base leading-relaxed [font-family:var(--typography-font-family)]">High conductivity wiring engineered for maximum energy efficiency and long life.</p>
+                    {/* Circle Badge */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-36 @tablet:w-48 @tablet:h-48 bg-[#c62828] rounded-full flex flex-col items-center justify-center text-white shadow-2xl border-[6px] border-[#FFF8E4] z-10">
+                      <span className="text-xl @tablet:text-2xl font-bold tracking-wider" style={{ fontFamily: 'var(--typography-font-family)' }}>Since</span>
+                      <span className="text-4xl @tablet:text-5xl font-black mt-1">2004</span>
                     </div>
+                  </div>
                 </div>
 
-                {/* CTA Button */}
-                <div className="mt-8">
-                  <Link to="/about" className="group inline-flex items-center gap-4 pl-8 pr-3 py-3 bg-white border-2 border-gray-900 text-gray-900 font-bold rounded-full hover:bg-gray-900 hover:text-white transition-all duration-300 [font-family:var(--typography-font-family)]">
-                    <span className="tracking-wide">Explore About Us</span>
-                    <div className="w-10 h-10 rounded-full flex items-center justify-center text-gray-900 transition-colors duration-300 group-hover:bg-white" style={{ backgroundColor: '#E8A317' }}>
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                      </svg>
+                {/* Right Column: Content */}
+                <div className="w-full @desktop:w-1/2 flex flex-col gap-6 text-left">
+                  <div className="flex items-center gap-3">
+                    <span className="[font-family:var(--typography-font-family)] text-[14px] font-bold tracking-[0.2em] text-[#c62828] uppercase">About Electra Wires</span>
+                    <div className="w-2 h-2 rounded-full bg-[#E8A317]"></div>
+                  </div>
+                  
+                  <h2 className="text-4xl @tablet:text-5xl @desktop:text-6xl font-bold text-[#060603] leading-[1.1] [font-family:var(--typography-font-family)]">
+                    20+ Years of Excellence in Electrical Solutions
+                  </h2>
+                  
+                  <p className="text-[#4b5563] text-lg leading-relaxed max-w-xl [font-family:var(--typography-font-family)]">
+                    Electra Wires is a trusted manufacturer of fire-resistant electrical wires based in New Delhi. With over two decades of experience, we provide reliable, durable, and safe wiring solutions for residential, commercial, and industrial needs.
+                  </p>
+                  
+                  {/* Feature Boxes */}
+                  <div className="flex flex-col @tablet:flex-row gap-6 mt-6">
+                    <div className="flex-1 bg-white p-8 rounded-[1.5rem] shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 flex flex-col gap-5 hover:shadow-lg transition-all">
+                      <div className="text-[#E8A317]">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M12 2c0 0-4 4-4 9a4 4 0 0 0 8 0c0-5-4-9-4-9z"></path>
+                          <path d="M12 12c-1.5 0-3-1.5-3-3"></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-[#060603] [font-family:var(--typography-font-family)]">FR-LSH Fire Safety</h4>
+                        <p className="text-sm text-gray-500 mt-2 leading-relaxed">Maximum protection with zero flame spread.</p>
+                      </div>
                     </div>
-                  </Link>
+                    
+                    <div className="flex-1 bg-white p-8 rounded-[1.5rem] shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 flex flex-col gap-5 hover:shadow-lg transition-all">
+                      <div className="text-[#E8A317]">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                          <circle cx="12" cy="12" r="8"></circle>
+                          <path d="M12 8v4l3 3"></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-[#060603] [font-family:var(--typography-font-family)]">99.95% Copper</h4>
+                        <p className="text-sm text-gray-500 mt-2 leading-relaxed">Highest purity for superior conductivity.</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Button */}
+                  <div className="mt-8">
+                    <Link to="/about" className="inline-flex items-center gap-4 px-8 py-4 bg-transparent border-2 border-[#060603] text-[#060603] rounded-full font-bold hover:bg-[#060603] hover:text-white transition-all duration-300 group [font-family:var(--typography-font-family)]">
+                      Explore More
+                      <div className="w-8 h-8 rounded-full bg-[#E8A317] text-white flex items-center justify-center group-hover:bg-white group-hover:text-[#E8A317] transition-all duration-300">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
+                      </div>
+                    </Link>
+                  </div>
+                  
                 </div>
+                
               </div>
+
             </div>
           </div>
         </section>
