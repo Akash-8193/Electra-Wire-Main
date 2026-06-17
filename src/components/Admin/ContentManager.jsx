@@ -85,7 +85,7 @@ const ContentManager = () => {
           <div className="mt-4 flex items-center gap-4">
             <button
               type="submit"
-              className="rounded-full border border-black bg-[#c62828] px-8 py-3 text-sm font-bold uppercase tracking-wider text-white shadow-md transition-all hover:bg-[#a00000] hover:shadow-lg inline-flex items-center justify-center"
+              className="admin-red-btn px-8 py-3 text-sm"
             >
               Save Changes
             </button>
