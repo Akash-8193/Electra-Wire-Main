@@ -38,34 +38,74 @@ const AdminDashboard = () => {
 
   if (!isAuthenticated) {
     return (
-      <div className="relative z-10 min-h-screen bg-[#FFF8E4] flex flex-col justify-center items-center px-6" style={{ paddingTop: '120px' }}>
-        <div className="bg-white p-10 rounded-3xl shadow-xl w-full max-w-md border border-gray-100">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Admin Login</h1>
-            <p className="text-gray-600">Enter password to access the dashboard</p>
+      <div className="relative z-10 min-h-screen flex flex-col justify-center items-center px-6" style={{ paddingTop: '120px', minHeight: 'calc(100vh + 120px)' }}>
+        <div 
+          style={{ 
+            backgroundColor: 'rgba(255, 255, 255, 0.85)', 
+            backdropFilter: 'blur(16px)', 
+            WebkitBackdropFilter: 'blur(16px)',
+            borderRadius: '24px', 
+            boxShadow: '0 20px 40px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.05)', 
+            border: '1px solid rgba(255,255,255,0.6)',
+            padding: '48px 40px',
+            width: '100%',
+            maxWidth: '440px',
+            textAlign: 'center'
+          }}
+        >
+          <div style={{ marginBottom: '32px' }}>
+            <div style={{ 
+              width: '64px', height: '64px', backgroundColor: '#fef2f2', borderRadius: '50%', 
+              display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px',
+              border: '1px solid #fee2e2'
+            }}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c62828" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <h1 style={{ fontSize: '28px', fontWeight: '800', color: '#111827', margin: '0 0 8px 0', fontFamily: 'var(--typography-font-family, inherit)' }}>Admin Access</h1>
+            <p style={{ fontSize: '15px', color: '#4b5563', margin: '0' }}>Please enter your password to continue</p>
           </div>
           
-          <form onSubmit={handleLogin} className="flex flex-col gap-6">
-            <div className="flex flex-col gap-2">
-              <label className="text-sm font-semibold text-gray-700">Password</label>
+          <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', textAlign: 'left' }}>
+              <label style={{ fontSize: '14px', fontWeight: '600', color: '#374151' }}>Secure Password</label>
               <input 
                 type="password" 
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-5 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-[#c62828] focus:ring-1 focus:ring-[#c62828]"
-                placeholder="Enter admin password"
+                style={{ 
+                  width: '100%', padding: '14px 20px', borderRadius: '12px', 
+                  border: '2px solid #e5e7eb', outline: 'none', fontSize: '16px',
+                  backgroundColor: '#ffffff', transition: 'all 0.2s ease', boxSizing: 'border-box'
+                }}
+                onFocus={(e) => e.target.style.borderColor = '#c62828'}
+                onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
+                placeholder="••••••••"
                 required
               />
             </div>
             
-            {error && <p className="text-red-500 text-sm font-medium">{error}</p>}
+            {error && (
+              <div style={{ backgroundColor: '#fef2f2', border: '1px solid #fecaca', padding: '12px', borderRadius: '8px' }}>
+                <p style={{ color: '#dc2626', fontSize: '14px', fontWeight: '500', margin: '0' }}>{error}</p>
+              </div>
+            )}
             
             <button 
               type="submit"
-              className="w-full py-3 rounded-full text-white font-bold transition-all mt-2"
-              style={{ backgroundColor: '#c62828', hover: { backgroundColor: '#a00000'} }}
+              style={{ 
+                width: '100%', padding: '14px', borderRadius: '100px', 
+                backgroundColor: '#c62828', color: '#ffffff', fontWeight: '700', 
+                fontSize: '16px', border: 'none', cursor: 'pointer',
+                boxShadow: '0 4px 12px rgba(198, 40, 40, 0.25)',
+                transition: 'all 0.2s ease', marginTop: '8px'
+              }}
+              onMouseOver={(e) => e.target.style.backgroundColor = '#a00000'}
+              onMouseOut={(e) => e.target.style.backgroundColor = '#c62828'}
             >
-              Login
+              Sign In to Dashboard
             </button>
           </form>
         </div>
