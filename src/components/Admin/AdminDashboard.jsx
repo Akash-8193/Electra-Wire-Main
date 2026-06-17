@@ -22,8 +22,8 @@ const AdminDashboard = () => {
                 onClick={() => setActiveTab('products')}
                 className={`flex items-center gap-3 rounded-2xl px-4 py-3 text-left font-semibold transition-all ${
                   activeTab === 'products'
-                    ? 'bg-[#FFF8E4] text-[#c62828]'
-                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                    ? 'bg-[#c62828] text-white'
+                    : 'text-gray-600 hover:bg-gray-50 hover:text-[#c62828]'
                 }`}
               >
                 Products
@@ -32,8 +32,8 @@ const AdminDashboard = () => {
                 onClick={() => setActiveTab('content')}
                 className={`flex items-center gap-3 rounded-2xl px-4 py-3 text-left font-semibold transition-all ${
                   activeTab === 'content'
-                    ? 'bg-[#FFF8E4] text-[#c62828]'
-                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                    ? 'bg-[#c62828] text-white'
+                    : 'text-gray-600 hover:bg-gray-50 hover:text-[#c62828]'
                 }`}
               >
                 Website Content

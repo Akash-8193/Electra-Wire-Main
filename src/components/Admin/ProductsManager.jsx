@@ -138,7 +138,7 @@ const ProductsManager = () => {
               <button
                 type="button"
                 onClick={handleCancel}
-                className="rounded-3xl border border-gray-300 bg-white px-8 py-3 font-semibold text-gray-700 transition-all hover:bg-gray-50"
+                className="rounded-3xl border-2 border-[#c62828] bg-transparent px-8 py-3 font-semibold text-[#c62828] transition-all hover:bg-[#FFF8E4]"
               >
                 Cancel
               </button>
@@ -172,7 +172,7 @@ const ProductsManager = () => {
                   <td className="px-6 py-4 text-right">
                     <button
                       onClick={() => handleEdit(product)}
-                      className="mr-3 text-blue-600 hover:text-blue-800 font-medium transition-colors"
+                      className="mr-3 rounded-full border border-[#c62828] bg-white px-4 py-1.5 text-xs font-semibold text-[#c62828] transition-all hover:bg-[#c62828] hover:text-white"
                     >
                       Edit
                     </button>
@@ -182,7 +182,7 @@ const ProductsManager = () => {
                           deleteProduct(product.id);
                         }
                       }}
-                      className="text-red-600 hover:text-red-800 font-medium transition-colors"
+                      className="rounded-full border border-[#c62828] bg-[#c62828] px-4 py-1.5 text-xs font-semibold text-white shadow-sm transition-all hover:bg-[#a00000] hover:border-[#a00000]"
                     >
                       Delete
                     </button>
