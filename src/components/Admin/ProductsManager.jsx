@@ -29,7 +29,7 @@ const ProductsManager = () => {
 
   const handleSave = (e) => {
     e.preventDefault();
-    if (editingId) {
+    if (editingId && editingId !== 'new') {
       updateProduct({ ...formData, id: editingId });
     } else {
       addProduct({
@@ -47,7 +47,7 @@ const ProductsManager = () => {
         {!editingId && (
           <button
             onClick={() => setEditingId('new')}
-            className="rounded-full border border-black bg-[#c62828] px-6 py-2.5 text-sm font-bold uppercase tracking-wider text-white shadow-md transition-all hover:bg-[#a00000] hover:shadow-lg inline-flex items-center justify-center"
+            className="admin-red-btn px-6 py-2.5 text-sm"
           >
             + Add New Product
           </button>
@@ -131,14 +131,14 @@ const ProductsManager = () => {
             <div className="mt-4 flex gap-4">
               <button
                 type="submit"
-                className="rounded-full border border-black bg-[#c62828] px-8 py-3 text-sm font-bold uppercase tracking-wider text-white shadow-md transition-all hover:bg-[#a00000] hover:shadow-lg inline-flex items-center justify-center"
+                className="admin-red-btn px-8 py-3 text-sm"
               >
                 Save Product
               </button>
               <button
                 type="button"
                 onClick={handleCancel}
-                className="rounded-full border border-black bg-[#c62828] px-8 py-3 text-sm font-bold uppercase tracking-wider text-white shadow-md transition-all hover:bg-[#a00000] hover:shadow-lg inline-flex items-center justify-center"
+                className="admin-red-btn px-8 py-3 text-sm"
               >
                 Cancel
               </button>
@@ -172,7 +172,7 @@ const ProductsManager = () => {
                   <td className="px-6 py-4 text-right">
                     <button
                       onClick={() => handleEdit(product)}
-                      className="mr-2 rounded-full border border-black bg-[#c62828] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-md transition-all hover:bg-[#a00000] hover:shadow-lg inline-flex items-center justify-center"
+                      className="admin-red-btn" style={{ padding: '6px 16px', fontSize: '12px', marginRight: '8px' }}
                     >
                       Edit
                     </button>
@@ -182,7 +182,7 @@ const ProductsManager = () => {
                           deleteProduct(product.id);
                         }
                       }}
-                      className="rounded-full border border-black bg-[#c62828] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-md transition-all hover:bg-[#a00000] hover:shadow-lg inline-flex items-center justify-center"
+                      className="admin-red-btn" style={{ padding: '6px 16px', fontSize: '12px' }}
                     >
                       Delete
                     </button>

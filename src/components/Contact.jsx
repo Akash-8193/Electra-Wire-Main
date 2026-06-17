@@ -176,7 +176,8 @@ const Contact = () => {
                                                 <button 
                                                     onClick={() => { setSubmitStatus(null); setSubmittedData(null); }}
                                                     type="button" 
-                                                    className="mt-8 px-6 py-3 bg-[#c62828] text-white font-bold rounded-full hover:bg-[#a00000] transition-colors"
+                                                    className="mt-8 px-6 py-3 font-bold rounded-full transition-colors"
+                                                    style={{ backgroundColor: '#c62828', color: '#ffffff', border: 'none' }}
                                                 >
                                                     Send Another Message
                                                 </button>
