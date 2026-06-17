@@ -30,6 +30,16 @@ const Home = () => {
                     <img src="/images/premium_wire_3d_right.png" alt="Premium Copper Wires" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   </div>
 
+                  {/* AI Generated Circular 3D Wire Image in Empty Space */}
+                  <div style={{ position: 'absolute', top: '-31%', right: '-0%', width: '320px', height: '320px', borderRadius: '50%', overflow: 'hidden', zIndex: 15, boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)', border: '10px solid white' }}>
+                    <img src="/images/premium_wire_3d_circle.png" alt="Futuristic 3D Wire" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  </div>
+
+                  {/* Second AI Generated Circular Image (Bottom Left) */}
+                  <div style={{ position: 'absolute', bottom: '-38%', left: '-3%', width: '320px', height: '310px', borderRadius: '50%', overflow: 'hidden', zIndex: 15, boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)', border: '10px solid white' }}>
+                    <img src="/images/premium_wire_3d_circle_bottom.png" alt="Industrial 3D Wire" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  </div>
+
                   {/* Yellow Circle Badge at Top Center */}
                   <div style={{ position: 'absolute', top: '15%', left: '50%', transform: 'translateX(-50%)', width: '200px', height: '200px', backgroundColor: '#F3AD22', borderRadius: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: 'white', zIndex: 20, boxShadow: '0 10px 15px -3px rgba(243, 173, 34, 0.3)' }}>
                     <span style={{ fontSize: '26px', fontWeight: '500', letterSpacing: '0.025em', fontFamily: 'var(--typography-font-family)', marginBottom: '4px' }}>Since</span>
@@ -39,54 +49,51 @@ const Home = () => {
               </div>
 
               {/* Right Column: Content */}
-              <div className="w-full @desktop:w-[45%] flex flex-col text-left" style={{ gap: '1.5rem', paddingLeft: '1rem' }}>
+              <div className="w-full @desktop:w-[50%] flex flex-col text-left" style={{ gap: '1.5rem', paddingLeft: '3rem' }}>
                 <div className="flex items-center" style={{ gap: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.2em', fontWeight: '700', color: '#6b7280', fontSize: '14px', fontFamily: 'var(--typography-font-family)' }}>
                   <span>ABOUT ELECTRA WIRES</span>
                   <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#F3AD22' }}></div>
                 </div>
 
-                <h2 style={{ position: 'relative', zIndex: 20, fontSize: '4.5rem', fontWeight: '700', color: '#1f2937', lineHeight: '1.15', fontFamily: 'var(--typography-font-family)' }}>
+                <h2 style={{ position: 'relative', zIndex: 20, fontSize: '4rem', fontWeight: '700', color: '#1f2937', lineHeight: '1.2', fontFamily: 'var(--typography-font-family)' }}>
                   20+ Years of Excellence<br />in Electrical Solutions
                 </h2>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '0.5rem' }}>
-                  <p style={{ color: '#6b7280', fontSize: '15px', lineHeight: '1.8', maxWidth: '36rem', fontFamily: 'var(--typography-font-family)' }}>
-                    Electra Wires is a trusted manufacturer of fire-resistant electrical wires based in New Delhi. With over two decades of experience, we provide reliable, durable, and safe wiring solutions for residential, commercial, and industrial needs.
-                  </p>
-                  <p style={{ color: '#6b7280', fontSize: '15px', lineHeight: '1.8', maxWidth: '36rem', fontFamily: 'var(--typography-font-family)' }}>
-                    Our unwavering commitment to quality ensures that every single wire leaving our advanced manufacturing facility strictly meets the highest national industry standards for safety, conductivity, and long-lasting efficiency.
+                  <p style={{ color: '#6b7280', fontSize: '16px', lineHeight: '1.7', width: '100%', fontFamily: 'var(--typography-font-family)' }}>
+                    Electra Wires is a trusted manufacturer of fire-resistant electrical wires based in New Delhi. With over two decades of experience, we provide reliable, durable, and safe wiring solutions for residential, commercial, and industrial needs. Our unwavering commitment to quality ensures that every single wire leaving our advanced manufacturing facility strictly meets the highest national industry standards for safety, conductivity, and long-lasting efficiency.
                   </p>
                 </div>
 
                 {/* Feature Boxes */}
                 <div className="flex flex-col @tablet:flex-row" style={{ gap: '1.5rem', marginTop: '1.5rem' }}>
                   {/* Box 1 with yellow dot */}
-                  <div className="flex-1 flex flex-col" style={{ position: 'relative', backgroundColor: 'white', padding: '2rem', borderRadius: '1.5rem', boxShadow: '0 4px 30px rgba(0,0,0,0.04)', border: '1px solid #f9fafb', gap: '1rem' }}>
+                  <div className="flex-1 flex flex-col" style={{ position: 'relative', backgroundColor: 'white', padding: '1.5rem', borderRadius: '1.5rem', boxShadow: '0 4px 30px rgba(0,0,0,0.04)', border: '1px solid #f9fafb', gap: '1rem' }}>
                     <div style={{ color: '#F3AD22' }}>
-                      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M12 2c0 0-4 4-4 9a4 4 0 0 0 8 0c0-5-4-9-4-9z"></path>
                         <path d="M12 12c-1.5 0-3-1.5-3-3"></path>
                       </svg>
                     </div>
                     <div>
-                      <h4 style={{ fontSize: '1.25rem', fontWeight: '700', color: '#1f2937', fontFamily: 'var(--typography-font-family)', marginBottom: '0.5rem' }}>FR-LSH Fire Safety</h4>
-                      <p style={{ fontSize: '14px', color: '#6b7280', lineHeight: '1.6', margin: 0, fontFamily: 'var(--typography-font-family)' }}>Maximum protection with zero flame spread. Uncompromised safety.</p>
+                      <h4 style={{ fontSize: '1.15rem', fontWeight: '700', color: '#1f2937', fontFamily: 'var(--typography-font-family)', marginBottom: '0.25rem' }}>FR-LSH Fire Safety</h4>
+                      <p style={{ fontSize: '13px', color: '#6b7280', lineHeight: '1.5', margin: 0, fontFamily: 'var(--typography-font-family)' }}>Maximum protection with zero flame spread. Uncompromised safety.</p>
                     </div>
                     {/* Yellow Dot Decoration */}
                     <div style={{ position: 'absolute', right: '1.5rem', top: '50%', transform: 'translateY(-50%)', width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#F3AD22' }}></div>
                   </div>
 
                   {/* Box 2 */}
-                  <div className="flex-1 flex flex-col" style={{ backgroundColor: 'white', padding: '2rem', borderRadius: '1.5rem', boxShadow: '0 4px 30px rgba(0,0,0,0.04)', border: '1px solid #f9fafb', gap: '1rem' }}>
+                  <div className="flex-1 flex flex-col" style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '1.5rem', boxShadow: '0 4px 30px rgba(0,0,0,0.04)', border: '1px solid #f9fafb', gap: '1rem' }}>
                     <div style={{ color: '#F3AD22' }}>
-                      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
                         <circle cx="12" cy="12" r="8"></circle>
                         <path d="M12 8v4l3 3"></path>
                       </svg>
                     </div>
                     <div>
-                      <h4 style={{ fontSize: '1.25rem', fontWeight: '700', color: '#1f2937', fontFamily: 'var(--typography-font-family)', marginBottom: '0.5rem' }}>99.95% Copper</h4>
-                      <p style={{ fontSize: '14px', color: '#6b7280', lineHeight: '1.6', margin: 0, fontFamily: 'var(--typography-font-family)' }}>Highest purity for superior conductivity. Energy efficient wires.</p>
+                      <h4 style={{ fontSize: '1.15rem', fontWeight: '700', color: '#1f2937', fontFamily: 'var(--typography-font-family)', marginBottom: '0.25rem' }}>99.95% Copper</h4>
+                      <p style={{ fontSize: '13px', color: '#6b7280', lineHeight: '1.5', margin: 0, fontFamily: 'var(--typography-font-family)' }}>Highest purity for superior conductivity. Energy efficient wires.</p>
                     </div>
                   </div>
                 </div>
