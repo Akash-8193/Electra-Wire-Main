@@ -4,6 +4,8 @@ import { useDataContext } from '../../context/DataContext';
 const ProductsManager = () => {
   const { products, addProduct, updateProduct, deleteProduct } = useDataContext();
   const [editingId, setEditingId] = useState(null);
+  const [notification, setNotification] = useState(null);
+  
   const [formData, setFormData] = useState({
     title: '',
     slug: '',
@@ -11,6 +13,13 @@ const ProductsManager = () => {
     fullDescription: '',
     image: '',
   });
+
+  const showNotification = (message) => {
+    setNotification(message);
+    setTimeout(() => {
+      setNotification(null);
+    }, 3000);
+  };
 
   const handleEdit = (product) => {
     setEditingId(product.id);
@@ -31,17 +40,28 @@ const ProductsManager = () => {
     e.preventDefault();
     if (editingId && editingId !== 'new') {
       updateProduct({ ...formData, id: editingId });
+      showNotification('Product updated successfully!');
     } else {
       addProduct({
         ...formData,
         slug: formData.slug || formData.title.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
       });
+      showNotification('Product added successfully!');
     }
     handleCancel();
   };
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 relative">
+      {notification && (
+        <div className="fixed top-24 right-6 z-50 bg-green-50 text-green-800 border border-green-200 px-6 py-3 rounded-2xl shadow-lg font-medium flex items-center gap-3 animate-fade-in">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+          </svg>
+          {notification}
+        </div>
+      )}
+
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold text-gray-900">Manage Products</h2>
         {!editingId && (
@@ -180,6 +200,7 @@ const ProductsManager = () => {
                       onClick={() => {
                         if (window.confirm('Are you sure you want to delete this product?')) {
                           deleteProduct(product.id);
+                          showNotification('Product deleted successfully!');
                         }
                       }}
                       className="admin-red-btn" style={{ padding: '6px 16px', fontSize: '12px' }}
