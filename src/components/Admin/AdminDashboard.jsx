@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ProductsManager from './ProductsManager';
 import ContentManager from './ContentManager';
+import InquiriesManager from './InquiriesManager';
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('products');
@@ -38,6 +39,16 @@ const AdminDashboard = () => {
               >
                 Website Content
               </button>
+              <button
+                onClick={() => setActiveTab('inquiries')}
+                className={`flex items-center gap-3 rounded-2xl px-4 py-3 text-left font-semibold transition-all ${
+                  activeTab === 'inquiries'
+                    ? 'bg-[#c62828] text-white'
+                    : 'text-gray-600 hover:bg-gray-50 hover:text-[#c62828]'
+                }`}
+              >
+                Inquiries & Messages
+              </button>
             </div>
           </div>
 
@@ -45,6 +56,7 @@ const AdminDashboard = () => {
           <div className="flex-1">
             {activeTab === 'products' && <ProductsManager />}
             {activeTab === 'content' && <ContentManager />}
+            {activeTab === 'inquiries' && <InquiriesManager />}
           </div>
         </div>
 
