@@ -6,7 +6,7 @@ const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('products');
 
   return (
-    <div className="relative z-10 min-h-screen bg-[#FFF8E4] pt-[120px] pb-24">
+    <div className="relative z-10 min-h-screen bg-[#FFF8E4] pt-[160px] pb-24">
       <div className="mx-auto max-w-[1536px] px-6 relative z-20">
         
         <div className="mb-8">

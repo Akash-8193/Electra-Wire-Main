@@ -31,7 +31,7 @@ const Layout = ({ children }) => {
         <div ref={rootRef} className="website-container" data-theme-scope="elegant-serif" style={{ containerName: 'root', containerType: 'inline-size' }}>
             <Header />
             {children}
-            <Footer />
+            {!location.pathname.startsWith('/admin') && <Footer />}
             <WhatsAppButton />
         </div>
     );
